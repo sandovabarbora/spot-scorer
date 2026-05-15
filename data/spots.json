@@ -1,0 +1,3218 @@
+{
+  "version": 1,
+  "n_spots": 47,
+  "n_brands": 13,
+  "sectors": [
+    "Automotive",
+    "Banking",
+    "Beverage",
+    "QSR",
+    "Retail",
+    "Telecom"
+  ],
+  "spots": [
+    {
+      "spot_id": "mcdonalds_01_l_pe_svetov_ho_menu",
+      "brand": "McDonald's",
+      "sector": "QSR",
+      "anchor_hex": "#FFC72C",
+      "n_frames": 28,
+      "diversity": 28.894127203363837,
+      "sat_mean": 0.360778523383467,
+      "sat_std": 0.14243839837851216,
+      "brand_anchor": 0.15831792221537658,
+      "color_gap_deg": 24.082523814644425,
+      "arc_shape": "valley",
+      "duration_s": 29.469841269841268,
+      "tempo_bpm": 69.83741554054055,
+      "key": "C#",
+      "mode": "minor",
+      "voice_fraction": 0.23983813979529944,
+      "music_fraction": 0.7601618602047006,
+      "rms_mean": 0.2542646825313568,
+      "rms_std": 0.08838556706905365,
+      "spectral_centroid_mean": 2454.9020097123416,
+      "onset_rate": 4.207691479047722,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.15831792221537658,
+          "target": 0.23099954603871298,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.23)."
+        },
+        {
+          "metric": "diversity",
+          "current": 28.894127203363837,
+          "target": 28.881855569528206,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (28.88)."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 69.83741554054055,
+          "target": 112.34714673913044,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (112.35)."
+        },
+        {
+          "metric": "rms_std",
+          "current": 0.08838556706905365,
+          "target": 0.09175148606300354,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.09) to leave the QSR default."
+        }
+      ]
+    },
+    {
+      "spot_id": "mcdonalds_02_loupe_sv_tov_ho_menu",
+      "brand": "McDonald's",
+      "sector": "QSR",
+      "anchor_hex": "#FFC72C",
+      "n_frames": 28,
+      "diversity": 28.881855569528206,
+      "sat_mean": 0.3524866911433389,
+      "sat_std": 0.14150623921342426,
+      "brand_anchor": 0.13724968216515013,
+      "color_gap_deg": 48.3862286698141,
+      "arc_shape": "valley",
+      "duration_s": 29.469841269841268,
+      "tempo_bpm": 69.83741554054055,
+      "key": "C#",
+      "mode": "minor",
+      "voice_fraction": 0.23006544819073715,
+      "music_fraction": 0.7699345518092628,
+      "rms_mean": 0.2543588876724243,
+      "rms_std": 0.09175148606300354,
+      "spectral_centroid_mean": 2414.236244252465,
+      "onset_rate": 4.513088441236669,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.13724968216515013,
+          "target": 0.23099954603871298,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.23)."
+        },
+        {
+          "metric": "diversity",
+          "current": 28.881855569528206,
+          "target": 30.35555380293553,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (30.36)."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 69.83741554054055,
+          "target": 112.34714673913044,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (112.35)."
+        },
+        {
+          "metric": "spectral_centroid_mean",
+          "current": 2414.236244252465,
+          "target": 2454.9020097123416,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (2454.90)."
+        }
+      ]
+    },
+    {
+      "spot_id": "mcdonalds_03_fakt_si_mysl_e_pozn",
+      "brand": "McDonald's",
+      "sector": "QSR",
+      "anchor_hex": "#FFC72C",
+      "n_frames": 118,
+      "diversity": 30.37615731556117,
+      "sat_mean": 0.4374887878269547,
+      "sat_std": 0.08168878598995553,
+      "brand_anchor": 0.23099954603871298,
+      "color_gap_deg": 22.88343980607066,
+      "arc_shape": "rising",
+      "duration_s": 117.86820861678005,
+      "tempo_bpm": 112.34714673913044,
+      "key": "G",
+      "mode": "minor",
+      "voice_fraction": 0.8551772848074015,
+      "music_fraction": 0.14482271519259848,
+      "rms_mean": 0.22186078131198883,
+      "rms_std": 0.15017889440059662,
+      "spectral_centroid_mean": 2217.1921317196093,
+      "onset_rate": 5.107399247555016,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 22.88343980607066,
+          "target": 22.110998024470845,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (22.11)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.08168878598995553,
+          "target": 0.14150623921342426,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.14)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8551772848074015,
+          "target": 0.23983813979529944,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.24) to leave the QSR default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.14482271519259848,
+          "target": 0.7601618602047006,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.76) to leave the QSR default."
+        },
+        {
+          "metric": "spectral_centroid_mean",
+          "current": 2217.1921317196093,
+          "target": 2454.9020097123416,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (2454.90)."
+        }
+      ]
+    },
+    {
+      "spot_id": "mcdonalds_04_fakt_mysl_e_zn_p_tel",
+      "brand": "McDonald's",
+      "sector": "QSR",
+      "anchor_hex": "#FFC72C",
+      "n_frames": 112,
+      "diversity": 30.35555380293553,
+      "sat_mean": 0.4102942751195077,
+      "sat_std": 0.06659618660145522,
+      "brand_anchor": 0.21875079764452363,
+      "color_gap_deg": 22.110998024470845,
+      "arc_shape": "rising",
+      "duration_s": 112.01678004535147,
+      "tempo_bpm": 112.34714673913044,
+      "key": "G",
+      "mode": "major",
+      "voice_fraction": 0.8738939299848405,
+      "music_fraction": 0.12527705447111803,
+      "rms_mean": 0.08416469395160675,
+      "rms_std": 0.050527140498161316,
+      "spectral_centroid_mean": 2424.4694693825004,
+      "onset_rate": 5.240286319267036,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 22.110998024470845,
+          "target": 24.082523814644425,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (24.08)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.21875079764452363,
+          "target": 0.23099954603871298,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.23)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.06659618660145522,
+          "target": 0.14150623921342426,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.14)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8738939299848405,
+          "target": 0.23983813979529944,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.24) to leave the QSR default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.12527705447111803,
+          "target": 0.7601618602047006,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.76) to leave the QSR default."
+        }
+      ]
+    },
+    {
+      "spot_id": "mcdonalds_05_kto_z_priate_ov_si_t",
+      "brand": "McDonald's",
+      "sector": "QSR",
+      "anchor_hex": "#FFC72C",
+      "n_frames": 29,
+      "diversity": 23.83247216247543,
+      "sat_mean": 0.4190721054052654,
+      "sat_std": 0.08684894755592376,
+      "brand_anchor": 0.6941579384408121,
+      "color_gap_deg": 14.90517447885479,
+      "arc_shape": "peak",
+      "duration_s": 29.469841269841268,
+      "tempo_bpm": 143.5546875,
+      "key": "E",
+      "mode": "major",
+      "voice_fraction": 0.8135765760798103,
+      "music_fraction": 0.18642342392018973,
+      "rms_mean": 0.13559585809707642,
+      "rms_std": 0.05127891153097153,
+      "spectral_centroid_mean": 2709.427083399113,
+      "onset_rate": 4.954217386620705,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 14.90517447885479,
+          "target": 24.082523814644425,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (24.08)."
+        },
+        {
+          "metric": "diversity",
+          "current": 23.83247216247543,
+          "target": 30.35555380293553,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (30.36)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.08684894755592376,
+          "target": 0.08168878598995553,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.08)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8135765760798103,
+          "target": 0.23983813979529944,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.24) to leave the QSR default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.18642342392018973,
+          "target": 0.7601618602047006,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.76) to leave the QSR default."
+        }
+      ]
+    },
+    {
+      "spot_id": "penny_01_krou_kujeme_s_michal",
+      "brand": "Penny Market",
+      "sector": "Retail",
+      "anchor_hex": "#E30613",
+      "n_frames": 34,
+      "diversity": 31.097660152133432,
+      "sat_mean": 0.20406211405170638,
+      "sat_std": 0.06548027453314821,
+      "brand_anchor": 0.12476103117360789,
+      "color_gap_deg": 44.620483527519696,
+      "arc_shape": "valley",
+      "duration_s": 34.55501133786848,
+      "tempo_bpm": 143.5546875,
+      "key": "E",
+      "mode": "minor",
+      "voice_fraction": 0.6100987373413085,
+      "music_fraction": 0.3899012626586915,
+      "rms_mean": 0.14070023596286774,
+      "rms_std": 0.0755809023976326,
+      "spectral_centroid_mean": 2055.61791227907,
+      "onset_rate": 5.990448041704181,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 44.620483527519696,
+          "target": 4.6345634505707665,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (4.63)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.12476103117360789,
+          "target": 0.053134440467563604,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.05)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.06548027453314821,
+          "target": 0.23619660002638576,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.24)."
+        },
+        {
+          "metric": "spectral_centroid_mean",
+          "current": 2055.61791227907,
+          "target": 2692.25373386887,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (2692.25)."
+        }
+      ]
+    },
+    {
+      "spot_id": "penny_02_krou_kujeme_s_michal",
+      "brand": "Penny Market",
+      "sector": "Retail",
+      "anchor_hex": "#E30613",
+      "n_frames": 38,
+      "diversity": 30.030600598342062,
+      "sat_mean": 0.2609187902368681,
+      "sat_std": 0.1254721758197834,
+      "brand_anchor": 0.29959233884552594,
+      "color_gap_deg": 25.2125327494889,
+      "arc_shape": "falling",
+      "duration_s": 38.68816326530612,
+      "tempo_bpm": 123.046875,
+      "key": "D",
+      "mode": "major",
+      "voice_fraction": 0.7148435165126307,
+      "music_fraction": 0.26895972283949887,
+      "rms_mean": 0.05394081771373749,
+      "rms_std": 0.04311157390475273,
+      "spectral_centroid_mean": 1920.5439504419078,
+      "onset_rate": 6.100056970438672,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 25.2125327494889,
+          "target": 4.6345634505707665,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (4.63)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.29959233884552594,
+          "target": 0.053134440467563604,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.05)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.1254721758197834,
+          "target": 0.07099337618224373,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.07)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7148435165126307,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.26895972283949887,
+          "target": 0.2748109989215409,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.27) to leave the Retail default."
+        }
+      ]
+    },
+    {
+      "spot_id": "penny_03_krou_kujeme_s_danou",
+      "brand": "Penny Market",
+      "sector": "Retail",
+      "anchor_hex": "#E30613",
+      "n_frames": 35,
+      "diversity": 27.3277363674121,
+      "sat_mean": 0.34506817323538114,
+      "sat_std": 0.14121107742933076,
+      "brand_anchor": 0.6493099500292114,
+      "color_gap_deg": 3.0011703466470863,
+      "arc_shape": "valley",
+      "duration_s": 35.460589569160994,
+      "tempo_bpm": 172.265625,
+      "key": "F",
+      "mode": "major",
+      "voice_fraction": 0.562539436346652,
+      "music_fraction": 0.41848150606172496,
+      "rms_mean": 0.08401629328727722,
+      "rms_std": 0.07519428431987762,
+      "spectral_centroid_mean": 2271.111038307326,
+      "onset_rate": 5.386261264141726,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 3.0011703466470863,
+          "target": 156.63325512181433,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (156.63)."
+        },
+        {
+          "metric": "diversity",
+          "current": 27.3277363674121,
+          "target": 29.758988240391382,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (29.76)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.14121107742933076,
+          "target": 0.07099337618224373,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.07)."
+        },
+        {
+          "metric": "spectral_centroid_mean",
+          "current": 2271.111038307326,
+          "target": 2203.8423265774613,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (2203.84)."
+        }
+      ]
+    },
+    {
+      "spot_id": "penny_04_krou_kujeme_s_danou",
+      "brand": "Penny Market",
+      "sector": "Retail",
+      "anchor_hex": "#E30613",
+      "n_frames": 36,
+      "diversity": 26.301635536171926,
+      "sat_mean": 0.445840879554271,
+      "sat_std": 0.138699697111416,
+      "brand_anchor": 0.19158730190247297,
+      "color_gap_deg": 28.22022641459563,
+      "arc_shape": "rising",
+      "duration_s": 36.45904761904762,
+      "tempo_bpm": 123.046875,
+      "key": "A",
+      "mode": "minor",
+      "voice_fraction": 0.6548714739990914,
+      "music_fraction": 0.31521127584177433,
+      "rms_mean": 0.10140963643789291,
+      "rms_std": 0.09391700476408005,
+      "spectral_centroid_mean": 2136.5736148475967,
+      "onset_rate": 3.7027845985058256,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 28.22022641459563,
+          "target": 4.6345634505707665,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (4.63)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.19158730190247297,
+          "target": 0.053134440467563604,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.05)."
+        },
+        {
+          "metric": "diversity",
+          "current": 26.301635536171926,
+          "target": 29.758988240391382,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (29.76)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.138699697111416,
+          "target": 0.07099337618224373,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.07)."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 123.046875,
+          "target": 117.45383522727273,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (117.45)."
+        }
+      ]
+    },
+    {
+      "spot_id": "penny_05_krou_kujeme_s_michal",
+      "brand": "Penny Market",
+      "sector": "Retail",
+      "anchor_hex": "#E30613",
+      "n_frames": 22,
+      "diversity": 15.388527959209656,
+      "sat_mean": 0.5919548193134827,
+      "sat_std": 0.36244291517903415,
+      "brand_anchor": 0.6450141555613165,
+      "color_gap_deg": 3.510942825253551,
+      "arc_shape": "peak",
+      "duration_s": 22.29487528344671,
+      "tempo_bpm": 143.5546875,
+      "key": "F",
+      "mode": "minor",
+      "voice_fraction": 0.6797955813960008,
+      "music_fraction": 0.280662275003583,
+      "rms_mean": 0.041511036455631256,
+      "rms_std": 0.044143080711364746,
+      "spectral_centroid_mean": 1579.1927835578012,
+      "onset_rate": 4.395628984422358,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 3.510942825253551,
+          "target": 156.63325512181433,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (156.63)."
+        },
+        {
+          "metric": "diversity",
+          "current": 15.388527959209656,
+          "target": 29.758988240391382,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (29.76)."
+        },
+        {
+          "metric": "rms_std",
+          "current": 0.044143080711364746,
+          "target": 0.06888239085674286,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.07) to leave the Retail default."
+        },
+        {
+          "metric": "spectral_centroid_mean",
+          "current": 1579.1927835578012,
+          "target": 2692.25373386887,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (2692.25)."
+        }
+      ]
+    },
+    {
+      "spot_id": "pilsner_01_pilsner_urquell_alfo",
+      "brand": "Pilsner Urquell",
+      "sector": "Beverage",
+      "anchor_hex": "#00713C",
+      "n_frames": 59,
+      "diversity": 16.53270911598569,
+      "sat_mean": 0.45377426941089233,
+      "sat_std": 0.08570723104832953,
+      "brand_anchor": 0.0016411924462840552,
+      "color_gap_deg": 102.07890387724372,
+      "arc_shape": "rising",
+      "duration_s": 59.60934240362812,
+      "tempo_bpm": 80.74951171875,
+      "key": "F#",
+      "mode": "major",
+      "voice_fraction": 0.1407056356487549,
+      "music_fraction": 0.8592943643512451,
+      "rms_mean": 0.07857681065797806,
+      "rms_std": 0.03969436138868332,
+      "spectral_centroid_mean": 2271.1325470924376,
+      "onset_rate": 1.5433822332252474,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.0016411924462840552,
+          "target": 0.21898874926157985,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.22)."
+        },
+        {
+          "metric": "diversity",
+          "current": 16.53270911598569,
+          "target": 15.959696674779273,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (15.96)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.08570723104832953,
+          "target": 0.09579245118967947,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.10)."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 80.74951171875,
+          "target": 123.97904829545455,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (123.98)."
+        },
+        {
+          "metric": "rms_std",
+          "current": 0.03969436138868332,
+          "target": 0.08552035130560398,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.09) to leave the Beverage default."
+        }
+      ]
+    },
+    {
+      "spot_id": "mattoni_01_mattoni_imuno_podpor",
+      "brand": "Mattoni",
+      "sector": "Beverage",
+      "anchor_hex": "#0072CE",
+      "n_frames": 19,
+      "diversity": 27.444875235346547,
+      "sat_mean": 0.2528100239491124,
+      "sat_std": 0.09394297767869657,
+      "brand_anchor": 0.1048143893607681,
+      "color_gap_deg": 67.92798114302079,
+      "arc_shape": "rising",
+      "duration_s": 19.485260770975056,
+      "tempo_bpm": 95.703125,
+      "key": "E",
+      "mode": "minor",
+      "voice_fraction": 0.8106265937484964,
+      "music_fraction": 0.18937340625150356,
+      "rms_mean": 0.1651235967874527,
+      "rms_std": 0.07079500705003738,
+      "spectral_centroid_mean": 2504.443195501298,
+      "onset_rate": 5.4913301524496685,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 67.92798114302079,
+          "target": 76.46571182657652,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (76.47)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.1048143893607681,
+          "target": 0.07902109013214709,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.08)."
+        },
+        {
+          "metric": "diversity",
+          "current": 27.444875235346547,
+          "target": 27.453563357421707,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (27.45)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.09394297767869657,
+          "target": 0.09579245118967947,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.10)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8106265937484964,
+          "target": 0.5755569840248537,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.58) to leave the Beverage default."
+        }
+      ]
+    },
+    {
+      "spot_id": "mattoni_02_mattoni_imuno",
+      "brand": "Mattoni",
+      "sector": "Beverage",
+      "anchor_hex": "#0072CE",
+      "n_frames": 19,
+      "diversity": 27.479627723647194,
+      "sat_mean": 0.25682106748688205,
+      "sat_std": 0.09428649246425326,
+      "brand_anchor": 0.13569312788254306,
+      "color_gap_deg": 67.42531828525588,
+      "arc_shape": "rising",
+      "duration_s": 19.485260770975056,
+      "tempo_bpm": 117.45383522727273,
+      "key": "G",
+      "mode": "major",
+      "voice_fraction": 0.7205074334835533,
+      "music_fraction": 0.2794925665164467,
+      "rms_mean": 0.13242055475711823,
+      "rms_std": 0.04298130050301552,
+      "spectral_centroid_mean": 2723.9164340442126,
+      "onset_rate": 4.7728383568020485,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 67.42531828525588,
+          "target": 76.46571182657652,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (76.47)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.13569312788254306,
+          "target": 0.07902109013214709,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.08)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.09428649246425326,
+          "target": 0.09579245118967947,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.10)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7205074334835533,
+          "target": 0.5755569840248537,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.58) to leave the Beverage default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.2794925665164467,
+          "target": 0.42444301597514633,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.42) to leave the Beverage default."
+        }
+      ]
+    },
+    {
+      "spot_id": "fio_01_pro_v_echny_pozemsk",
+      "brand": "Fio banka",
+      "sector": "Banking",
+      "anchor_hex": "#00A551",
+      "n_frames": 81,
+      "diversity": 27.39458720831099,
+      "sat_mean": 0.3556943491105565,
+      "sat_std": 0.06436244254501322,
+      "brand_anchor": 0.0148952822258443,
+      "color_gap_deg": 87.5259136248525,
+      "arc_shape": "rising",
+      "duration_s": 81.04136054421768,
+      "tempo_bpm": 99.38401442307692,
+      "key": "D",
+      "mode": "major",
+      "voice_fraction": 0.6604034050508151,
+      "music_fraction": 0.3395965949491849,
+      "rms_mean": 0.12162616103887558,
+      "rms_std": 0.05938730388879776,
+      "spectral_centroid_mean": 2349.6344434823577,
+      "onset_rate": 4.516212432049478,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 87.5259136248525,
+          "target": 84.79910853986067,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (84.80)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.0148952822258443,
+          "target": 0.007156143585840861,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.01)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.06436244254501322,
+          "target": 0.04457705670997211,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.04)."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 99.38401442307692,
+          "target": 135.99917763157896,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (136.00)."
+        },
+        {
+          "metric": "rms_std",
+          "current": 0.05938730388879776,
+          "target": 0.06198875233530998,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.06) to leave the Banking default."
+        }
+      ]
+    },
+    {
+      "spot_id": "fio_02_pro_v_echny_pozemsk",
+      "brand": "Fio banka",
+      "sector": "Banking",
+      "anchor_hex": "#00A551",
+      "n_frames": 66,
+      "diversity": 28.190092759397146,
+      "sat_mean": 0.3201761679777677,
+      "sat_std": 0.04511890751455627,
+      "brand_anchor": 0.08447781385797443,
+      "color_gap_deg": 74.28784570271955,
+      "arc_shape": "rising",
+      "duration_s": 65.94839002267574,
+      "tempo_bpm": 151.99908088235293,
+      "key": "D",
+      "mode": "major",
+      "voice_fraction": 0.7204416329044945,
+      "music_fraction": 0.2795583670955055,
+      "rms_mean": 0.12484157830476761,
+      "rms_std": 0.0622941218316555,
+      "spectral_centroid_mean": 2596.561255247051,
+      "onset_rate": 4.928096044319684,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 74.28784570271955,
+          "target": 111.99722005237584,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (112.00)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.04511890751455627,
+          "target": 0.04457705670997211,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.04)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7204416329044945,
+          "target": 0.6748129772865911,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.67) to leave the Banking default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.2795583670955055,
+          "target": 0.3243564579293558,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.32) to leave the Banking default."
+        }
+      ]
+    },
+    {
+      "spot_id": "fio_03_pro_v_echny_pozemsk",
+      "brand": "Fio banka",
+      "sector": "Banking",
+      "anchor_hex": "#00A551",
+      "n_frames": 75,
+      "diversity": 24.656980972353278,
+      "sat_mean": 0.2312215479413472,
+      "sat_std": 0.06350183419346875,
+      "brand_anchor": 0.022051190336545307,
+      "color_gap_deg": 94.62178314837497,
+      "arc_shape": "peak",
+      "duration_s": 75.65433106575964,
+      "tempo_bpm": 135.99917763157896,
+      "key": "D",
+      "mode": "major",
+      "voice_fraction": 0.6418135104546168,
+      "music_fraction": 0.35818648954538324,
+      "rms_mean": 0.14033111929893494,
+      "rms_std": 0.05359151214361191,
+      "spectral_centroid_mean": 2297.771089697721,
+      "onset_rate": 3.727479921207449,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 94.62178314837497,
+          "target": 84.79910853986067,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (84.80)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.022051190336545307,
+          "target": 0.007156143585840861,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.01)."
+        },
+        {
+          "metric": "diversity",
+          "current": 24.656980972353278,
+          "target": 27.154074521696963,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (27.15)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.06350183419346875,
+          "target": 0.04457705670997211,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.04)."
+        },
+        {
+          "metric": "rms_std",
+          "current": 0.05359151214361191,
+          "target": 0.06198875233530998,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.06) to leave the Banking default."
+        }
+      ]
+    },
+    {
+      "spot_id": "fio_04_pro_v_echny_pozemsk",
+      "brand": "Fio banka",
+      "sector": "Banking",
+      "anchor_hex": "#00A551",
+      "n_frames": 84,
+      "diversity": 26.913561835082934,
+      "sat_mean": 0.25701099138562267,
+      "sat_std": 0.03693019262108514,
+      "brand_anchor": 0.014312287171681723,
+      "color_gap_deg": 84.24027310579694,
+      "arc_shape": "rising",
+      "duration_s": 83.85097505668934,
+      "tempo_bpm": 103.359375,
+      "key": "D",
+      "mode": "major",
+      "voice_fraction": 0.6892225495223671,
+      "music_fraction": 0.3091163209095267,
+      "rms_mean": 0.11721091717481613,
+      "rms_std": 0.06168338283896446,
+      "spectral_centroid_mean": 2221.18195365075,
+      "onset_rate": 3.9117016800132407,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 84.24027310579694,
+          "target": 111.99722005237584,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (112.00)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.014312287171681723,
+          "target": 0.007156143585840861,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.01)."
+        },
+        {
+          "metric": "diversity",
+          "current": 26.913561835082934,
+          "target": 27.154074521696963,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (27.15)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.03693019262108514,
+          "target": 0.10864524929614512,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.11)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.6892225495223671,
+          "target": 0.6748129772865911,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.67) to leave the Banking default."
+        }
+      ]
+    },
+    {
+      "spot_id": "fio_05_pro_v_echny_pozemsk",
+      "brand": "Fio banka",
+      "sector": "Banking",
+      "anchor_hex": "#00A551",
+      "n_frames": 63,
+      "diversity": 20.796250913937744,
+      "sat_mean": 0.2536131616713277,
+      "sat_std": 0.044035205905387946,
+      "brand_anchor": 0.0804556417205031,
+      "color_gap_deg": 85.35794397392439,
+      "arc_shape": "falling",
+      "duration_s": 63.579954648526076,
+      "tempo_bpm": 103.359375,
+      "key": "D",
+      "mode": "major",
+      "voice_fraction": 0.7547027367096572,
+      "music_fraction": 0.24529726329034285,
+      "rms_mean": 0.13875670731067657,
+      "rms_std": 0.05669235438108444,
+      "spectral_centroid_mean": 2549.8633358150246,
+      "onset_rate": 5.331869169677974,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 85.35794397392439,
+          "target": 84.79910853986067,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (84.80)."
+        },
+        {
+          "metric": "diversity",
+          "current": 20.796250913937744,
+          "target": 27.154074521696963,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (27.15)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.044035205905387946,
+          "target": 0.10864524929614512,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.11)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7547027367096572,
+          "target": 0.6748129772865911,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.67) to leave the Banking default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.24529726329034285,
+          "target": 0.3243564579293558,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.32) to leave the Banking default."
+        }
+      ]
+    },
+    {
+      "spot_id": "tmobile_01_magenta_tv_uv_d_ve_e",
+      "brand": "T-Mobile",
+      "sector": "Telecom",
+      "anchor_hex": "#E20074",
+      "n_frames": 22,
+      "diversity": 29.747134781065895,
+      "sat_mean": 0.34553562264852355,
+      "sat_std": 0.2029031617171493,
+      "brand_anchor": 0.08943994356713023,
+      "color_gap_deg": 6.164438759599989,
+      "arc_shape": "valley",
+      "duration_s": 22.59673469387755,
+      "tempo_bpm": 143.5546875,
+      "key": "D",
+      "mode": "major",
+      "voice_fraction": 0.779050084636065,
+      "music_fraction": 0.22094991536393505,
+      "rms_mean": 0.13163283467292786,
+      "rms_std": 0.06645862013101578,
+      "spectral_centroid_mean": 2390.9071849358174,
+      "onset_rate": 3.628842888623966,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 6.164438759599989,
+          "target": 4.756717638326753,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (4.76)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.08943994356713023,
+          "target": 0.27398921992926356,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.27)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.2029031617171493,
+          "target": 0.2619349406099754,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.26)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.779050084636065,
+          "target": 0.6760189324322273,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.68) to leave the Telecom default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.22094991536393505,
+          "target": 0.30842411832004346,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.31) to leave the Telecom default."
+        }
+      ]
+    },
+    {
+      "spot_id": "tmobile_02_magenta_tv_uv_d_ve_e",
+      "brand": "T-Mobile",
+      "sector": "Telecom",
+      "anchor_hex": "#E20074",
+      "n_frames": 19,
+      "diversity": 19.088651094686373,
+      "sat_mean": 0.3270572993723466,
+      "sat_std": 0.2563065012624101,
+      "brand_anchor": 0.17451836212034344,
+      "color_gap_deg": 1.7091013435099285,
+      "arc_shape": "valley",
+      "duration_s": 19.485260770975056,
+      "tempo_bpm": 112.34714673913044,
+      "key": "C",
+      "mode": "minor",
+      "voice_fraction": 0.6770227575257004,
+      "music_fraction": 0.3122629567600139,
+      "rms_mean": 0.10599439591169357,
+      "rms_std": 0.06331653147935867,
+      "spectral_centroid_mean": 2260.0162981858084,
+      "onset_rate": 4.259629931339463,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 1.7091013435099285,
+          "target": 16.072628970414982,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (16.07)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.17451836212034344,
+          "target": 0.27398921992926356,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.27)."
+        },
+        {
+          "metric": "diversity",
+          "current": 19.088651094686373,
+          "target": 28.00858186342488,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (28.01)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.2563065012624101,
+          "target": 0.2619349406099754,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.26)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.6770227575257004,
+          "target": 0.6760189324322273,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.68) to leave the Telecom default."
+        }
+      ]
+    },
+    {
+      "spot_id": "tmobile_03_t_fiber_uv_d_ve_ern",
+      "brand": "T-Mobile",
+      "sector": "Telecom",
+      "anchor_hex": "#E20074",
+      "n_frames": 17,
+      "diversity": 25.063610722472816,
+      "sat_mean": 0.3556234648404479,
+      "sat_std": 0.3077701076264112,
+      "brand_anchor": 0.2540126054492943,
+      "color_gap_deg": 6.459286336264029,
+      "arc_shape": "valley",
+      "duration_s": 17.27936507936508,
+      "tempo_bpm": 172.265625,
+      "key": "A",
+      "mode": "minor",
+      "voice_fraction": 0.7354432669005678,
+      "music_fraction": 0.08603324316654626,
+      "rms_mean": 0.0874425619840622,
+      "rms_std": 0.08024546504020691,
+      "spectral_centroid_mean": 1995.2262102596087,
+      "onset_rate": 3.6459672974462616,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 6.459286336264029,
+          "target": 4.756717638326753,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (4.76)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.2540126054492943,
+          "target": 0.27398921992926356,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.27)."
+        },
+        {
+          "metric": "diversity",
+          "current": 25.063610722472816,
+          "target": 28.00858186342488,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (28.01)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7354432669005678,
+          "target": 0.6760189324322273,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.68) to leave the Telecom default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.08603324316654626,
+          "target": 0.30842411832004346,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.31) to leave the Telecom default."
+        }
+      ]
+    },
+    {
+      "spot_id": "tmobile_04_t_fiber_uv_d_ve_ern",
+      "brand": "T-Mobile",
+      "sector": "Telecom",
+      "anchor_hex": "#E20074",
+      "n_frames": 88,
+      "diversity": 28.07519205828444,
+      "sat_mean": 0.4022626220305618,
+      "sat_std": 0.26381108705916384,
+      "brand_anchor": 0.2018399938136678,
+      "color_gap_deg": 18.981677311273927,
+      "arc_shape": "valley",
+      "duration_s": 89.28444444444445,
+      "tempo_bpm": 123.046875,
+      "key": "D",
+      "mode": "major",
+      "voice_fraction": 0.7125368905017109,
+      "music_fraction": 0.25834194465169524,
+      "rms_mean": 0.1950334906578064,
+      "rms_std": 0.13962863385677338,
+      "spectral_centroid_mean": 2231.1482306871717,
+      "onset_rate": 3.494449698840161,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.2018399938136678,
+          "target": 0.18134877004367453,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.18)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7125368905017109,
+          "target": 0.6760189324322273,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.68) to leave the Telecom default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.25834194465169524,
+          "target": 0.30842411832004346,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.31) to leave the Telecom default."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 123.046875,
+          "target": 118.85209517045455,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (118.85)."
+        },
+        {
+          "metric": "spectral_centroid_mean",
+          "current": 2231.1482306871717,
+          "target": 2632.471494397156,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (2632.47)."
+        }
+      ]
+    },
+    {
+      "spot_id": "tmobile_05_magenta_tv_uv_d_ve_e",
+      "brand": "T-Mobile",
+      "sector": "Telecom",
+      "anchor_hex": "#E20074",
+      "n_frames": 87,
+      "diversity": 27.80875127884619,
+      "sat_mean": 0.3855887753825404,
+      "sat_std": 0.26802566116125687,
+      "brand_anchor": 0.2024866610701228,
+      "color_gap_deg": 7.345483947838147,
+      "arc_shape": "valley",
+      "duration_s": 88.00734693877551,
+      "tempo_bpm": 89.10290948275862,
+      "key": "A",
+      "mode": "minor",
+      "voice_fraction": 0.6614147393897386,
+      "music_fraction": 0.2969076030001322,
+      "rms_mean": 0.19562748074531555,
+      "rms_std": 0.14566318690776825,
+      "spectral_centroid_mean": 2383.677059273654,
+      "onset_rate": 2.511153985288798,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 7.345483947838147,
+          "target": 4.756717638326753,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (4.76)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.2024866610701228,
+          "target": 0.18134877004367453,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.18)."
+        },
+        {
+          "metric": "diversity",
+          "current": 27.80875127884619,
+          "target": 28.00858186342488,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (28.01)."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.2969076030001322,
+          "target": 0.30842411832004346,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.31) to leave the Telecom default."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 89.10290948275862,
+          "target": 143.5546875,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (143.55)."
+        }
+      ]
+    },
+    {
+      "spot_id": "vodafone_01_nejlep_pevn_internet",
+      "brand": "Vodafone",
+      "sector": "Telecom",
+      "anchor_hex": "#E60000",
+      "n_frames": 19,
+      "diversity": 30.27474131517063,
+      "sat_mean": 0.4596237977535158,
+      "sat_std": 0.23335555760779333,
+      "brand_anchor": 0.6675305446903956,
+      "color_gap_deg": 1.017932301821166,
+      "arc_shape": "valley",
+      "duration_s": 19.46204081632653,
+      "tempo_bpm": 117.45383522727273,
+      "key": "G#",
+      "mode": "minor",
+      "voice_fraction": 0.8839794086572274,
+      "music_fraction": 0.11602059134277265,
+      "rms_mean": 0.12290547043085098,
+      "rms_std": 0.04379194602370262,
+      "spectral_centroid_mean": 2938.9200674897706,
+      "onset_rate": 4.778532779665282,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 1.017932301821166,
+          "target": 16.072628970414982,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (16.07)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.23335555760779333,
+          "target": 0.20544261230366556,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.21)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8839794086572274,
+          "target": 0.6760189324322273,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.68) to leave the Telecom default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.11602059134277265,
+          "target": 0.30842411832004346,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.31) to leave the Telecom default."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 117.45383522727273,
+          "target": 143.5546875,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (143.55)."
+        }
+      ]
+    },
+    {
+      "spot_id": "vodafone_02_sta_jednou_ct",
+      "brand": "Vodafone",
+      "sector": "Telecom",
+      "anchor_hex": "#E60000",
+      "n_frames": 29,
+      "diversity": 27.054295833880822,
+      "sat_mean": 0.45425031032938273,
+      "sat_std": 0.14792315192754218,
+      "brand_anchor": 0.2806480914225866,
+      "color_gap_deg": 22.497690823293183,
+      "arc_shape": "peak",
+      "duration_s": 29.493061224489797,
+      "tempo_bpm": 143.5546875,
+      "key": "G#",
+      "mode": "major",
+      "voice_fraction": 0.6756843240677363,
+      "music_fraction": 0.32431567593226374,
+      "rms_mean": 0.13633014261722565,
+      "rms_std": 0.05572071298956871,
+      "spectral_centroid_mean": 2093.544818528759,
+      "onset_rate": 4.475628996097318,
+      "brief_targets": [
+        {
+          "metric": "diversity",
+          "current": 27.054295833880822,
+          "target": 28.00858186342488,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (28.01)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.14792315192754218,
+          "target": 0.2619349406099754,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.26)."
+        },
+        {
+          "metric": "rms_std",
+          "current": 0.05572071298956871,
+          "target": 0.07679875381290913,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.08) to leave the Telecom default."
+        },
+        {
+          "metric": "spectral_centroid_mean",
+          "current": 2093.544818528759,
+          "target": 2632.471494397156,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (2632.47)."
+        }
+      ]
+    },
+    {
+      "spot_id": "vodafone_03_u_20_let_posouv_me_e",
+      "brand": "Vodafone",
+      "sector": "Telecom",
+      "anchor_hex": "#E60000",
+      "n_frames": 19,
+      "diversity": 26.941745405733165,
+      "sat_mean": 0.4450859933895479,
+      "sat_std": 0.21949620542705986,
+      "brand_anchor": 0.3388580481138824,
+      "color_gap_deg": 4.646962162892758,
+      "arc_shape": "rising",
+      "duration_s": 19.46204081632653,
+      "tempo_bpm": 184.5703125,
+      "key": "E",
+      "mode": "minor",
+      "voice_fraction": 0.9433770187512244,
+      "music_fraction": 0.05662298124877563,
+      "rms_mean": 0.1317715048789978,
+      "rms_std": 0.034434348344802856,
+      "spectral_centroid_mean": 2761.059665014642,
+      "onset_rate": 5.754792164758189,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 4.646962162892758,
+          "target": 16.072628970414982,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (16.07)."
+        },
+        {
+          "metric": "diversity",
+          "current": 26.941745405733165,
+          "target": 28.00858186342488,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (28.01)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.21949620542705986,
+          "target": 0.20544261230366556,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.21)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.9433770187512244,
+          "target": 0.6760189324322273,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.68) to leave the Telecom default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.05662298124877563,
+          "target": 0.30842411832004346,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.31) to leave the Telecom default."
+        }
+      ]
+    },
+    {
+      "spot_id": "vodafone_04_20_let_na_je_t_lep_s",
+      "brand": "Vodafone",
+      "sector": "Telecom",
+      "anchor_hex": "#E60000",
+      "n_frames": 29,
+      "diversity": 20.66912472221298,
+      "sat_mean": 0.3385475480242942,
+      "sat_std": 0.21306096406321426,
+      "brand_anchor": 0.20627001085286512,
+      "color_gap_deg": 5.085984064628739,
+      "arc_shape": "valley",
+      "duration_s": 29.493061224489797,
+      "tempo_bpm": 135.99917763157896,
+      "key": "G#",
+      "mode": "major",
+      "voice_fraction": 0.6009548855769047,
+      "music_fraction": 0.3990451144230953,
+      "rms_mean": 0.11390922218561172,
+      "rms_std": 0.05249505490064621,
+      "spectral_centroid_mean": 2712.9929308842693,
+      "onset_rate": 4.679066677738105,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 5.085984064628739,
+          "target": 4.756717638326753,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (4.76)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.20627001085286512,
+          "target": 0.18134877004367453,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.18)."
+        },
+        {
+          "metric": "diversity",
+          "current": 20.66912472221298,
+          "target": 28.00858186342488,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (28.01)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.21306096406321426,
+          "target": 0.20544261230366556,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.21)."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 135.99917763157896,
+          "target": 143.5546875,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (143.55)."
+        }
+      ]
+    },
+    {
+      "spot_id": "vodafone_05_je_tu_giga_kombo",
+      "brand": "Vodafone",
+      "sector": "Telecom",
+      "anchor_hex": "#E60000",
+      "n_frames": 29,
+      "diversity": 26.58002184229594,
+      "sat_mean": 0.3587680721326688,
+      "sat_std": 0.17598078402846187,
+      "brand_anchor": 0.16903479050459533,
+      "color_gap_deg": 101.85114227749077,
+      "arc_shape": "rising",
+      "duration_s": 29.446621315192743,
+      "tempo_bpm": 123.046875,
+      "key": "A",
+      "mode": "major",
+      "voice_fraction": 0.7992978821851401,
+      "music_fraction": 0.20070211781485991,
+      "rms_mean": 0.11593367159366608,
+      "rms_std": 0.06113135814666748,
+      "spectral_centroid_mean": 2247.062464686652,
+      "onset_rate": 5.1958422788919725,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.16903479050459533,
+          "target": 0.27398921992926356,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.27)."
+        },
+        {
+          "metric": "diversity",
+          "current": 26.58002184229594,
+          "target": 25.442713502428596,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (25.44)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.17598078402846187,
+          "target": 0.2619349406099754,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.26)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7992978821851401,
+          "target": 0.6760189324322273,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.68) to leave the Telecom default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.20070211781485991,
+          "target": 0.30842411832004346,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.31) to leave the Telecom default."
+        }
+      ]
+    },
+    {
+      "spot_id": "komercni_banka_01_astn_a_bezpe_n_sv_tk",
+      "brand": "Komerční banka",
+      "sector": "Banking",
+      "anchor_hex": "#A50064",
+      "n_frames": 19,
+      "diversity": 17.39941696883751,
+      "sat_mean": 0.19236524302312122,
+      "sat_std": 0.20498830635622484,
+      "brand_anchor": 0.0,
+      "color_gap_deg": 129.3726569563767,
+      "arc_shape": "falling",
+      "duration_s": 19.46204081632653,
+      "tempo_bpm": 135.99917763157896,
+      "key": "E",
+      "mode": "minor",
+      "voice_fraction": 0.7649754490306462,
+      "music_fraction": 0.23502455096935382,
+      "rms_mean": 0.10048525780439377,
+      "rms_std": 0.06373428553342819,
+      "spectral_centroid_mean": 2577.915487449127,
+      "onset_rate": 5.292353508661549,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.0,
+          "target": 0.0512534160285242,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.05)."
+        },
+        {
+          "metric": "diversity",
+          "current": 17.39941696883751,
+          "target": 27.154074521696963,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (27.15)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7649754490306462,
+          "target": 0.6748129772865911,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.67) to leave the Banking default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.23502455096935382,
+          "target": 0.3243564579293558,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.32) to leave the Banking default."
+        }
+      ]
+    },
+    {
+      "spot_id": "komercni_banka_02_bezpe_n_et_zdarma_s",
+      "brand": "Komerční banka",
+      "sector": "Banking",
+      "anchor_hex": "#A50064",
+      "n_frames": 29,
+      "diversity": 23.23460849764045,
+      "sat_mean": 0.29882400160424516,
+      "sat_std": 0.15292805604727702,
+      "brand_anchor": 0.0,
+      "color_gap_deg": 149.84738064976378,
+      "arc_shape": "peak",
+      "duration_s": 29.469841269841268,
+      "tempo_bpm": 129.19921875,
+      "key": "A",
+      "mode": "minor",
+      "voice_fraction": 0.8827955666591731,
+      "music_fraction": 0.11720443334082686,
+      "rms_mean": 0.138203427195549,
+      "rms_std": 0.05625060200691223,
+      "spectral_centroid_mean": 2493.749716577736,
+      "onset_rate": 5.497145319401056,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.0,
+          "target": 0.0512534160285242,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.05)."
+        },
+        {
+          "metric": "diversity",
+          "current": 23.23460849764045,
+          "target": 22.015429705789096,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (22.02)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8827955666591731,
+          "target": 0.6748129772865911,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.67) to leave the Banking default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.11720443334082686,
+          "target": 0.3243564579293558,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.32) to leave the Banking default."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 129.19921875,
+          "target": 135.99917763157896,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (136.00)."
+        }
+      ]
+    },
+    {
+      "spot_id": "albert_01_objevte_nov_gourmet",
+      "brand": "Albert",
+      "sector": "Retail",
+      "anchor_hex": "#0067B1",
+      "n_frames": 29,
+      "diversity": 30.830670846323752,
+      "sat_mean": 0.2869712064078077,
+      "sat_std": 0.0676288529871177,
+      "brand_anchor": 0.00665794312953949,
+      "color_gap_deg": 151.45864964493904,
+      "arc_shape": "rising",
+      "duration_s": 29.469841269841268,
+      "tempo_bpm": 89.10290948275862,
+      "key": "A",
+      "mode": "minor",
+      "voice_fraction": 0.7273868654006846,
+      "music_fraction": 0.2686761267252996,
+      "rms_mean": 0.0420747771859169,
+      "rms_std": 0.026450006291270256,
+      "spectral_centroid_mean": 2501.4232406994606,
+      "onset_rate": 5.598944306797372,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 151.45864964493904,
+          "target": 156.63325512181433,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (156.63)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.00665794312953949,
+          "target": 0.5978582949521989,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.60)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.0676288529871177,
+          "target": 0.23619660002638576,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.24)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7273868654006846,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.2686761267252996,
+          "target": 0.2748109989215409,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.27) to leave the Retail default."
+        }
+      ]
+    },
+    {
+      "spot_id": "albert_02_dop_ejte_si_vyj_me_n",
+      "brand": "Albert",
+      "sector": "Retail",
+      "anchor_hex": "#0067B1",
+      "n_frames": 29,
+      "diversity": 29.001603096986212,
+      "sat_mean": 0.3591507912815648,
+      "sat_std": 0.0999558659274395,
+      "brand_anchor": 0.0,
+      "color_gap_deg": 175.61871406816533,
+      "arc_shape": "peak",
+      "duration_s": 29.469841269841268,
+      "tempo_bpm": 117.45383522727273,
+      "key": "D",
+      "mode": "minor",
+      "voice_fraction": 0.835157936706552,
+      "music_fraction": 0.16484206329344797,
+      "rms_mean": 0.04409121349453926,
+      "rms_std": 0.02186807617545128,
+      "spectral_centroid_mean": 2585.6380829670643,
+      "onset_rate": 5.259614348809652,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.0,
+          "target": 0.5978582949521989,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.60)."
+        },
+        {
+          "metric": "diversity",
+          "current": 29.001603096986212,
+          "target": 29.758988240391382,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (29.76)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.0999558659274395,
+          "target": 0.07099337618224373,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.07)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.835157936706552,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.16484206329344797,
+          "target": 0.2748109989215409,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.27) to leave the Retail default."
+        }
+      ]
+    },
+    {
+      "spot_id": "albert_03_ka_d_rok_darujeme_v",
+      "brand": "Albert",
+      "sector": "Retail",
+      "anchor_hex": "#0067B1",
+      "n_frames": 29,
+      "diversity": 18.538830704708634,
+      "sat_mean": 0.28221903017357447,
+      "sat_std": 0.07000139195641875,
+      "brand_anchor": 0.09053109637622175,
+      "color_gap_deg": 177.7381879014221,
+      "arc_shape": "falling",
+      "duration_s": 29.469841269841268,
+      "tempo_bpm": 129.19921875,
+      "key": "G#",
+      "mode": "major",
+      "voice_fraction": 0.9012550952455686,
+      "music_fraction": 0.09874490475443143,
+      "rms_mean": 0.1338454633951187,
+      "rms_std": 0.0625704973936081,
+      "spectral_centroid_mean": 2700.7163971025907,
+      "onset_rate": 4.309490466444037,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.09053109637622175,
+          "target": 0.053134440467563604,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.05)."
+        },
+        {
+          "metric": "diversity",
+          "current": 18.538830704708634,
+          "target": 29.758988240391382,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (29.76)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.07000139195641875,
+          "target": 0.23619660002638576,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.24)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.9012550952455686,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.09874490475443143,
+          "target": 0.2748109989215409,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.27) to leave the Retail default."
+        }
+      ]
+    },
+    {
+      "spot_id": "albert_04_sleva_15_s_m_j_alber",
+      "brand": "Albert",
+      "sector": "Retail",
+      "anchor_hex": "#0067B1",
+      "n_frames": 19,
+      "diversity": 25.414182527721135,
+      "sat_mean": 0.2986119421607548,
+      "sat_std": 0.07198536040806872,
+      "brand_anchor": 0.01573778455890546,
+      "color_gap_deg": 161.8078605986896,
+      "arc_shape": "falling",
+      "duration_s": 19.46204081632653,
+      "tempo_bpm": 123.046875,
+      "key": "A",
+      "mode": "minor",
+      "voice_fraction": 1.0,
+      "music_fraction": 0.0,
+      "rms_mean": 0.07080115377902985,
+      "rms_std": 0.037211570888757706,
+      "spectral_centroid_mean": 2308.090111590279,
+      "onset_rate": 5.035443144163415,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.01573778455890546,
+          "target": 0.5978582949521989,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.60)."
+        },
+        {
+          "metric": "diversity",
+          "current": 25.414182527721135,
+          "target": 29.758988240391382,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (29.76)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.07198536040806872,
+          "target": 0.07099337618224373,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.07)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 1.0,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.0,
+          "target": 0.2748109989215409,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.27) to leave the Retail default."
+        }
+      ]
+    },
+    {
+      "spot_id": "albert_05_vychutnejte_si_alber",
+      "brand": "Albert",
+      "sector": "Retail",
+      "anchor_hex": "#0067B1",
+      "n_frames": 29,
+      "diversity": 25.89368422285102,
+      "sat_mean": 0.4086992182318329,
+      "sat_std": 0.08987631723356446,
+      "brand_anchor": 0.0005033866919834038,
+      "color_gap_deg": 177.93640257598372,
+      "arc_shape": "peak",
+      "duration_s": 29.469841269841268,
+      "tempo_bpm": 117.45383522727273,
+      "key": "D",
+      "mode": "minor",
+      "voice_fraction": 0.9198503556598051,
+      "music_fraction": 0.08014964434019489,
+      "rms_mean": 0.04296763241291046,
+      "rms_std": 0.021193496882915497,
+      "spectral_centroid_mean": 2923.4257291413865,
+      "onset_rate": 5.700743294193687,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.0005033866919834038,
+          "target": 0.5978582949521989,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.60)."
+        },
+        {
+          "metric": "diversity",
+          "current": 25.89368422285102,
+          "target": 29.758988240391382,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (29.76)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.08987631723356446,
+          "target": 0.07099337618224373,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.07)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.9198503556598051,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.08014964434019489,
+          "target": 0.2748109989215409,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.27) to leave the Retail default."
+        }
+      ]
+    },
+    {
+      "spot_id": "lidl_01_v_e_pro_skv_l_grilov",
+      "brand": "Lidl",
+      "sector": "Retail",
+      "anchor_hex": "#0050AA",
+      "n_frames": 19,
+      "diversity": 21.94162010531771,
+      "sat_mean": 0.6817212656506264,
+      "sat_std": 0.3187585880570133,
+      "brand_anchor": 0.5507024343430814,
+      "color_gap_deg": 5.825853621001613,
+      "arc_shape": "peak",
+      "duration_s": 19.46204081632653,
+      "tempo_bpm": 161.4990234375,
+      "key": "G#",
+      "mode": "minor",
+      "voice_fraction": 0.8182072172463736,
+      "music_fraction": 0.17940899252716636,
+      "rms_mean": 0.05815751850605011,
+      "rms_std": 0.01835072971880436,
+      "spectral_centroid_mean": 2792.1066856879497,
+      "onset_rate": 5.240971435761923,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 5.825853621001613,
+          "target": 4.6345634505707665,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (4.63)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.5507024343430814,
+          "target": 0.5978582949521989,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.60)."
+        },
+        {
+          "metric": "diversity",
+          "current": 21.94162010531771,
+          "target": 20.511302525206624,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (20.51)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8182072172463736,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.17940899252716636,
+          "target": 0.2748109989215409,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.27) to leave the Retail default."
+        }
+      ]
+    },
+    {
+      "spot_id": "lidl_02_ji_ve_tvrtek_v_lidlu",
+      "brand": "Lidl",
+      "sector": "Retail",
+      "anchor_hex": "#0050AA",
+      "n_frames": 19,
+      "diversity": 19.06510182926872,
+      "sat_mean": 0.7636727842262746,
+      "sat_std": 0.24203714653391986,
+      "brand_anchor": 0.8132776460123778,
+      "color_gap_deg": 3.5826810208203312,
+      "arc_shape": "peak",
+      "duration_s": 19.46204081632653,
+      "tempo_bpm": 123.046875,
+      "key": "G",
+      "mode": "minor",
+      "voice_fraction": 0.8924028478482176,
+      "music_fraction": 0.10402146681209234,
+      "rms_mean": 0.05534913018345833,
+      "rms_std": 0.02278369478881359,
+      "spectral_centroid_mean": 2683.7910706351486,
+      "onset_rate": 5.549263873159682,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 3.5826810208203312,
+          "target": 156.63325512181433,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (156.63)."
+        },
+        {
+          "metric": "diversity",
+          "current": 19.06510182926872,
+          "target": 29.758988240391382,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (29.76)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8924028478482176,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.10402146681209234,
+          "target": 0.2748109989215409,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.27) to leave the Retail default."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 123.046875,
+          "target": 117.45383522727273,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (117.45)."
+        }
+      ]
+    },
+    {
+      "spot_id": "lidl_03_vyb_rejte_z_v_ce_ne",
+      "brand": "Lidl",
+      "sector": "Retail",
+      "anchor_hex": "#0050AA",
+      "n_frames": 19,
+      "diversity": 29.487375882440706,
+      "sat_mean": 0.7168417535249765,
+      "sat_std": 0.23035605351885163,
+      "brand_anchor": 0.5326056792755449,
+      "color_gap_deg": 5.686445880321202,
+      "arc_shape": "peak",
+      "duration_s": 19.46204081632653,
+      "tempo_bpm": 107.666015625,
+      "key": "G#",
+      "mode": "minor",
+      "voice_fraction": 0.936899673403063,
+      "music_fraction": 0.060716536370476915,
+      "rms_mean": 0.06317131221294403,
+      "rms_std": 0.021576661616563797,
+      "spectral_centroid_mean": 2629.2742547038333,
+      "onset_rate": 5.395117654460803,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 5.686445880321202,
+          "target": 4.6345634505707665,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (4.63)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.5326056792755449,
+          "target": 0.5978582949521989,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.60)."
+        },
+        {
+          "metric": "diversity",
+          "current": 29.487375882440706,
+          "target": 29.758988240391382,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (29.76)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.23035605351885163,
+          "target": 0.23619660002638576,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.24)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.936899673403063,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        }
+      ]
+    },
+    {
+      "spot_id": "lidl_04_ak_n_nab_dka_od_tvrt",
+      "brand": "Lidl",
+      "sector": "Retail",
+      "anchor_hex": "#0050AA",
+      "n_frames": 14,
+      "diversity": 19.080984945095537,
+      "sat_mean": 0.9129303242090719,
+      "sat_std": 0.05421004119744573,
+      "brand_anchor": 0.8918589945108489,
+      "color_gap_deg": 2.451042414302435,
+      "arc_shape": "rising",
+      "duration_s": 14.469750566893424,
+      "tempo_bpm": 117.45383522727273,
+      "key": "C",
+      "mode": "minor",
+      "voice_fraction": 0.9998617812082914,
+      "music_fraction": 0.00013821879170861084,
+      "rms_mean": 0.105237677693367,
+      "rms_std": 0.04222220927476883,
+      "spectral_centroid_mean": 2763.287674592064,
+      "onset_rate": 6.980078857135693,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 2.451042414302435,
+          "target": 156.63325512181433,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (156.63)."
+        },
+        {
+          "metric": "diversity",
+          "current": 19.080984945095537,
+          "target": 29.758988240391382,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (29.76)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.05421004119744573,
+          "target": 0.23619660002638576,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.24)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.9998617812082914,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.00013821879170861084,
+          "target": 0.2748109989215409,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.27) to leave the Retail default."
+        }
+      ]
+    },
+    {
+      "spot_id": "lidl_05_ovoce_a_zelenina_z_l",
+      "brand": "Lidl",
+      "sector": "Retail",
+      "anchor_hex": "#0050AA",
+      "n_frames": 29,
+      "diversity": 30.63745813171102,
+      "sat_mean": 0.5221864441492335,
+      "sat_std": 0.29160980778197776,
+      "brand_anchor": 0.2625107750425051,
+      "color_gap_deg": 22.48222382786335,
+      "arc_shape": "rising",
+      "duration_s": 29.469841269841268,
+      "tempo_bpm": 123.046875,
+      "key": "E",
+      "mode": "minor",
+      "voice_fraction": 0.8489983415267286,
+      "music_fraction": 0.13210402067799576,
+      "rms_mean": 0.2532995641231537,
+      "rms_std": 0.08912794291973114,
+      "spectral_centroid_mean": 2533.0111748507748,
+      "onset_rate": 4.207691479047722,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 22.48222382786335,
+          "target": 4.6345634505707665,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (4.63)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.2625107750425051,
+          "target": 0.053134440467563604,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.05)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8489983415267286,
+          "target": 0.6973195489543158,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.70) to leave the Retail default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.13210402067799576,
+          "target": 0.2748109989215409,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.27) to leave the Retail default."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 123.046875,
+          "target": 117.45383522727273,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (117.45)."
+        }
+      ]
+    },
+    {
+      "spot_id": "skoda_auto_01_koda_peaq_explained",
+      "brand": "Škoda Auto",
+      "sector": "Automotive",
+      "anchor_hex": "#4BA82E",
+      "n_frames": 149,
+      "diversity": 19.332598138424913,
+      "sat_mean": 0.20578113042771773,
+      "sat_std": 0.07054211583773287,
+      "brand_anchor": 0.005361037810126807,
+      "color_gap_deg": 108.44243639874217,
+      "arc_shape": "falling",
+      "duration_s": 149.84208616780046,
+      "tempo_bpm": 99.38401442307692,
+      "key": "G",
+      "mode": "minor",
+      "voice_fraction": 0.8688085877052264,
+      "music_fraction": 0.13103646962356197,
+      "rms_mean": 0.08988673985004425,
+      "rms_std": 0.05647045746445656,
+      "spectral_centroid_mean": 2056.1989151245098,
+      "onset_rate": 5.525817353295291,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 0.005361037810126807,
+          "target": 0.07803549305376967,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.08)."
+        },
+        {
+          "metric": "diversity",
+          "current": 19.332598138424913,
+          "target": 24.50062006171212,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (24.50)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.07054211583773287,
+          "target": 0.16456811576962888,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.16)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8688085877052264,
+          "target": 0.7632833823195355,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.76) to leave the Automotive default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.13103646962356197,
+          "target": 0.19667369205262775,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.20) to leave the Automotive default."
+        }
+      ]
+    },
+    {
+      "spot_id": "skoda_auto_02_koda_duobell_the_fir",
+      "brand": "Škoda Auto",
+      "sector": "Automotive",
+      "anchor_hex": "#4BA82E",
+      "n_frames": 132,
+      "diversity": 24.943158720151047,
+      "sat_mean": 0.28411047508364784,
+      "sat_std": 0.18894030949930812,
+      "brand_anchor": 0.016371076721980266,
+      "color_gap_deg": 92.65163160949056,
+      "arc_shape": "peak",
+      "duration_s": 171.55274376417233,
+      "tempo_bpm": 135.99917763157896,
+      "key": "C",
+      "mode": "major",
+      "voice_fraction": 0.7845793786459266,
+      "music_fraction": 0.20946582368185795,
+      "rms_mean": 0.05173683539032936,
+      "rms_std": 0.032623980194330215,
+      "spectral_centroid_mean": 1644.664329949493,
+      "onset_rate": 4.657459755341237,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 92.65163160949056,
+          "target": 104.49473520142928,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (104.49)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.016371076721980266,
+          "target": 0.008113547538090172,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.01)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7845793786459266,
+          "target": 0.7632833823195355,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.76) to leave the Automotive default."
+        },
+        {
+          "metric": "rms_std",
+          "current": 0.032623980194330215,
+          "target": 0.1028157640248537,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.10) to leave the Automotive default."
+        },
+        {
+          "metric": "spectral_centroid_mean",
+          "current": 1644.664329949493,
+          "target": 2336.5048547760075,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (2336.50)."
+        }
+      ]
+    },
+    {
+      "spot_id": "skoda_auto_03_meet_koda_peaq_the_u",
+      "brand": "Škoda Auto",
+      "sector": "Automotive",
+      "anchor_hex": "#4BA82E",
+      "n_frames": 132,
+      "diversity": 22.31426160619999,
+      "sat_mean": 0.15687277835216118,
+      "sat_std": 0.09145153458059109,
+      "brand_anchor": 0.04755817105372747,
+      "color_gap_deg": 61.24659779056661,
+      "arc_shape": "rising",
+      "duration_s": 132.45034013605442,
+      "tempo_bpm": 117.45383522727273,
+      "key": "A#",
+      "mode": "minor",
+      "voice_fraction": 0.8870067374290183,
+      "music_fraction": 0.1101887051651973,
+      "rms_mean": 0.25796380639076233,
+      "rms_std": 0.10603317618370056,
+      "spectral_centroid_mean": 2429.9401679931734,
+      "onset_rate": 5.360499635340161,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 61.24659779056661,
+          "target": 54.01251244752646,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (54.01)."
+        },
+        {
+          "metric": "brand_anchor",
+          "current": 0.04755817105372747,
+          "target": 0.07803549305376967,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.08)."
+        },
+        {
+          "metric": "diversity",
+          "current": 22.31426160619999,
+          "target": 22.05450633880359,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (22.05)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.09145153458059109,
+          "target": 0.07495052586408676,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.07)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8870067374290183,
+          "target": 0.7632833823195355,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.76) to leave the Automotive default."
+        }
+      ]
+    },
+    {
+      "spot_id": "skoda_auto_04_big_possibilities_in",
+      "brand": "Škoda Auto",
+      "sector": "Automotive",
+      "anchor_hex": "#4BA82E",
+      "n_frames": 127,
+      "diversity": 28.042669733344532,
+      "sat_mean": 0.24526026806514073,
+      "sat_std": 0.08817575594314843,
+      "brand_anchor": 0.08819460038711706,
+      "color_gap_deg": 33.85085950880041,
+      "arc_shape": "falling",
+      "duration_s": 127.620589569161,
+      "tempo_bpm": 107.666015625,
+      "key": "G",
+      "mode": "major",
+      "voice_fraction": 0.8417027028350629,
+      "music_fraction": 0.15829729716493712,
+      "rms_mean": 0.19812902808189392,
+      "rms_std": 0.10761752724647522,
+      "spectral_centroid_mean": 2529.131458058713,
+      "onset_rate": 4.779792994683078,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 33.85085950880041,
+          "target": 104.49473520142928,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (104.49)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.08817575594314843,
+          "target": 0.07495052586408676,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (0.07)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.8417027028350629,
+          "target": 0.7632833823195355,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.76) to leave the Automotive default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.15829729716493712,
+          "target": 0.19667369205262775,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.20) to leave the Automotive default."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 107.666015625,
+          "target": 134.29918791118422,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (134.30)."
+        }
+      ]
+    },
+    {
+      "spot_id": "skoda_auto_05_the_all_electric_7_s",
+      "brand": "Škoda Auto",
+      "sector": "Automotive",
+      "anchor_hex": "#4BA82E",
+      "n_frames": 27,
+      "diversity": 21.967921249671456,
+      "sat_mean": 0.41817957300859776,
+      "sat_std": 0.1980587301348093,
+      "brand_anchor": 0.13436672946921102,
+      "color_gap_deg": 51.60115066651308,
+      "arc_shape": "valley",
+      "duration_s": 28.28562358276644,
+      "tempo_bpm": 151.99908088235293,
+      "key": "A",
+      "mode": "major",
+      "voice_fraction": 0.5892745873566521,
+      "music_fraction": 0.41072541264334794,
+      "rms_mean": 0.12776871025562286,
+      "rms_std": 0.09316352754831314,
+      "spectral_centroid_mean": 1999.3233992245302,
+      "onset_rate": 4.772742577337109,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 51.60115066651308,
+          "target": 104.49473520142928,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (104.49)."
+        },
+        {
+          "metric": "diversity",
+          "current": 21.967921249671456,
+          "target": 24.50062006171212,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (24.50)."
+        },
+        {
+          "metric": "rms_std",
+          "current": 0.09316352754831314,
+          "target": 0.1028157640248537,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.10) to leave the Automotive default."
+        },
+        {
+          "metric": "spectral_centroid_mean",
+          "current": 1999.3233992245302,
+          "target": 1946.1143398657266,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (1946.11)."
+        }
+      ]
+    },
+    {
+      "spot_id": "kofola_manual_menevice",
+      "brand": "Kofola",
+      "sector": "Beverage",
+      "anchor_hex": "#8B4513",
+      "n_frames": 32,
+      "diversity": 14.24065935116003,
+      "sat_mean": 0.35595918705606633,
+      "sat_std": 0.1003103273659581,
+      "brand_anchor": 0.46887561339869027,
+      "color_gap_deg": 11.071064966423318,
+      "arc_shape": "peak",
+      "duration_s": 44.44671201814059,
+      "tempo_bpm": 143.5546875,
+      "key": "A",
+      "mode": "minor",
+      "voice_fraction": 0.7431814474624129,
+      "music_fraction": 0.2568185525375871,
+      "rms_mean": 0.2508980333805084,
+      "rms_std": 0.12969638407230377,
+      "spectral_centroid_mean": 2062.629434961808,
+      "onset_rate": 4.162287638385797,
+      "brief_targets": [
+        {
+          "metric": "color_gap_deg",
+          "current": 11.071064966423318,
+          "target": 76.46571182657652,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (76.47)."
+        },
+        {
+          "metric": "diversity",
+          "current": 14.24065935116003,
+          "target": 27.453563357421707,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (27.45)."
+        },
+        {
+          "metric": "voice_fraction",
+          "current": 0.7431814474624129,
+          "target": 0.5755569840248537,
+          "direction": "lower",
+          "rationale": "Move below sector p25 (0.58) to leave the Beverage default."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.2568185525375871,
+          "target": 0.42444301597514633,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.42) to leave the Beverage default."
+        },
+        {
+          "metric": "spectral_centroid_mean",
+          "current": 2062.629434961808,
+          "target": 2559.3115051370264,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (2559.31)."
+        }
+      ]
+    },
+    {
+      "spot_id": "aaa_auto_manual_pobocku",
+      "brand": "AAA Auto",
+      "sector": "Automotive",
+      "anchor_hex": "#FFD500",
+      "n_frames": 65,
+      "diversity": 23.17300408639533,
+      "sat_mean": 0.09183988901935876,
+      "sat_std": 0.03512009074266302,
+      "brand_anchor": 9.61538462433964e-06,
+      "color_gap_deg": 158.81549416400097,
+      "arc_shape": "falling",
+      "duration_s": 65.48399092970521,
+      "tempo_bpm": 129.19921875,
+      "key": "B",
+      "mode": "minor",
+      "voice_fraction": 0.7561847168774052,
+      "music_fraction": 0.0942229399818646,
+      "rms_mean": 0.062220510095357895,
+      "rms_std": 0.05506440997123718,
+      "spectral_centroid_mean": 1928.3779867461253,
+      "onset_rate": 3.420683388714903,
+      "brief_targets": [
+        {
+          "metric": "brand_anchor",
+          "current": 9.61538462433964e-06,
+          "target": 0.07803549305376967,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.08)."
+        },
+        {
+          "metric": "diversity",
+          "current": 23.17300408639533,
+          "target": 22.05450633880359,
+          "direction": "lower",
+          "rationale": "Closer to lower-extreme: target below p25 (22.05)."
+        },
+        {
+          "metric": "sat_std",
+          "current": 0.03512009074266302,
+          "target": 0.16456811576962888,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (0.16)."
+        },
+        {
+          "metric": "music_fraction",
+          "current": 0.0942229399818646,
+          "target": 0.19667369205262775,
+          "direction": "higher",
+          "rationale": "Move above sector p75 (0.20) to leave the Automotive default."
+        },
+        {
+          "metric": "tempo_bpm",
+          "current": 129.19921875,
+          "target": 134.29918791118422,
+          "direction": "higher",
+          "rationale": "Closer to upper-extreme: target above p75 (134.30)."
+        }
+      ]
+    }
+  ],
+  "sector_benchmarks": {
+    "Automotive": {
+      "color_gap_deg": {
+        "n": 6,
+        "median": 76.94911470002859,
+        "p25": 54.01251244752646,
+        "p75": 104.49473520142928,
+        "min": 33.85085950880041,
+        "max": 158.81549416400097
+      },
+      "brand_anchor": {
+        "n": 6,
+        "median": 0.03196462388785387,
+        "p25": 0.008113547538090172,
+        "p75": 0.07803549305376967,
+        "min": 9.61538462433964e-06,
+        "max": 0.13436672946921102
+      },
+      "diversity": {
+        "n": 6,
+        "median": 22.74363284629766,
+        "p25": 22.05450633880359,
+        "p75": 24.50062006171212,
+        "min": 19.332598138424913,
+        "max": 28.042669733344532
+      },
+      "sat_std": {
+        "n": 6,
+        "median": 0.08981364526186976,
+        "p25": 0.07495052586408676,
+        "p75": 0.16456811576962888,
+        "min": 0.03512009074266302,
+        "max": 0.1980587301348093
+      },
+      "voice_fraction": {
+        "n": 6,
+        "median": 0.8131410407404948,
+        "p25": 0.7632833823195355,
+        "p75": 0.8620321164876855,
+        "min": 0.5892745873566521,
+        "max": 0.8870067374290183
+      },
+      "music_fraction": {
+        "n": 6,
+        "median": 0.14466688339424955,
+        "p25": 0.11540064627978847,
+        "p75": 0.19667369205262775,
+        "min": 0.0942229399818646,
+        "max": 0.41072541264334794
+      },
+      "tempo_bpm": {
+        "n": 6,
+        "median": 123.32652698863637,
+        "p25": 110.11297052556819,
+        "p75": 134.29918791118422,
+        "min": 99.38401442307692,
+        "max": 151.99908088235293
+      },
+      "rms_std": {
+        "n": 6,
+        "median": 0.07481699250638485,
+        "p25": 0.055415921844542027,
+        "p75": 0.1028157640248537,
+        "min": 0.032623980194330215,
+        "max": 0.10761752724647522
+      },
+      "spectral_centroid_mean": {
+        "n": 6,
+        "median": 2027.7611571745201,
+        "p25": 1946.1143398657266,
+        "p75": 2336.5048547760075,
+        "min": 1644.664329949493,
+        "max": 2529.131458058713
+      }
+    },
+    "Banking": {
+      "color_gap_deg": {
+        "n": 7,
+        "median": 87.5259136248525,
+        "p25": 84.79910853986067,
+        "p75": 111.99722005237584,
+        "min": 74.28784570271955,
+        "max": 149.84738064976378
+      },
+      "brand_anchor": {
+        "n": 7,
+        "median": 0.0148952822258443,
+        "p25": 0.007156143585840861,
+        "p75": 0.0512534160285242,
+        "min": 0.0,
+        "max": 0.08447781385797443
+      },
+      "diversity": {
+        "n": 7,
+        "median": 24.656980972353278,
+        "p25": 22.015429705789096,
+        "p75": 27.154074521696963,
+        "min": 17.39941696883751,
+        "max": 28.190092759397146
+      },
+      "sat_std": {
+        "n": 7,
+        "median": 0.06350183419346875,
+        "p25": 0.04457705670997211,
+        "p75": 0.10864524929614512,
+        "min": 0.03693019262108514,
+        "max": 0.20498830635622484
+      },
+      "voice_fraction": {
+        "n": 7,
+        "median": 0.7204416329044945,
+        "p25": 0.6748129772865911,
+        "p75": 0.7598390928701517,
+        "min": 0.6418135104546168,
+        "max": 0.8827955666591731
+      },
+      "music_fraction": {
+        "n": 7,
+        "median": 0.2795583670955055,
+        "p25": 0.24016090712984833,
+        "p75": 0.3243564579293558,
+        "min": 0.11720443334082686,
+        "max": 0.35818648954538324
+      },
+      "tempo_bpm": {
+        "n": 7,
+        "median": 129.19921875,
+        "p25": 103.359375,
+        "p75": 135.99917763157896,
+        "min": 99.38401442307692,
+        "max": 151.99908088235293
+      },
+      "rms_std": {
+        "n": 7,
+        "median": 0.05938730388879776,
+        "p25": 0.05647147819399834,
+        "p75": 0.06198875233530998,
+        "min": 0.05359151214361191,
+        "max": 0.06373428553342819
+      },
+      "spectral_centroid_mean": {
+        "n": 7,
+        "median": 2493.749716577736,
+        "p25": 2323.7027665900396,
+        "p75": 2563.8894116320757,
+        "min": 2221.18195365075,
+        "max": 2596.561255247051
+      }
+    },
+    "Beverage": {
+      "color_gap_deg": {
+        "n": 4,
+        "median": 67.67664971413834,
+        "p25": 53.33675495554775,
+        "p75": 76.46571182657652,
+        "min": 11.071064966423318,
+        "max": 102.07890387724372
+      },
+      "brand_anchor": {
+        "n": 4,
+        "median": 0.12025375862165558,
+        "p25": 0.07902109013214709,
+        "p75": 0.21898874926157985,
+        "min": 0.0016411924462840552,
+        "max": 0.46887561339869027
+      },
+      "diversity": {
+        "n": 4,
+        "median": 21.98879217566612,
+        "p25": 15.959696674779273,
+        "p75": 27.453563357421707,
+        "min": 14.24065935116003,
+        "max": 27.479627723647194
+      },
+      "sat_std": {
+        "n": 4,
+        "median": 0.09411473507147491,
+        "p25": 0.09188404102110481,
+        "p75": 0.09579245118967947,
+        "min": 0.08570723104832953,
+        "max": 0.1003103273659581
+      },
+      "voice_fraction": {
+        "n": 4,
+        "median": 0.7318444404729831,
+        "p25": 0.5755569840248537,
+        "p75": 0.7600427340339337,
+        "min": 0.1407056356487549,
+        "max": 0.8106265937484964
+      },
+      "music_fraction": {
+        "n": 4,
+        "median": 0.2681555595270169,
+        "p25": 0.23995726596606623,
+        "p75": 0.42444301597514633,
+        "min": 0.18937340625150356,
+        "max": 0.8592943643512451
+      },
+      "tempo_bpm": {
+        "n": 4,
+        "median": 106.57848011363637,
+        "p25": 91.9647216796875,
+        "p75": 123.97904829545455,
+        "min": 80.74951171875,
+        "max": 143.5546875
+      },
+      "rms_std": {
+        "n": 4,
+        "median": 0.05688815377652645,
+        "p25": 0.04215956572443247,
+        "p75": 0.08552035130560398,
+        "min": 0.03969436138868332,
+        "max": 0.12969638407230377
+      },
+      "spectral_centroid_mean": {
+        "n": 4,
+        "median": 2387.7878712968677,
+        "p25": 2219.0067690597803,
+        "p75": 2559.3115051370264,
+        "min": 2062.629434961808,
+        "max": 2723.9164340442126
+      }
+    },
+    "QSR": {
+      "color_gap_deg": {
+        "n": 5,
+        "median": 22.88343980607066,
+        "p25": 22.110998024470845,
+        "p75": 24.082523814644425,
+        "min": 14.90517447885479,
+        "max": 48.3862286698141
+      },
+      "brand_anchor": {
+        "n": 5,
+        "median": 0.21875079764452363,
+        "p25": 0.15831792221537658,
+        "p75": 0.23099954603871298,
+        "min": 0.13724968216515013,
+        "max": 0.6941579384408121
+      },
+      "diversity": {
+        "n": 5,
+        "median": 28.894127203363837,
+        "p25": 28.881855569528206,
+        "p75": 30.35555380293553,
+        "min": 23.83247216247543,
+        "max": 30.37615731556117
+      },
+      "sat_std": {
+        "n": 5,
+        "median": 0.08684894755592376,
+        "p25": 0.08168878598995553,
+        "p75": 0.14150623921342426,
+        "min": 0.06659618660145522,
+        "max": 0.14243839837851216
+      },
+      "voice_fraction": {
+        "n": 5,
+        "median": 0.8135765760798103,
+        "p25": 0.23983813979529944,
+        "p75": 0.8551772848074015,
+        "min": 0.23006544819073715,
+        "max": 0.8738939299848405
+      },
+      "music_fraction": {
+        "n": 5,
+        "median": 0.18642342392018973,
+        "p25": 0.14482271519259848,
+        "p75": 0.7601618602047006,
+        "min": 0.12527705447111803,
+        "max": 0.7699345518092628
+      },
+      "tempo_bpm": {
+        "n": 5,
+        "median": 112.34714673913044,
+        "p25": 69.83741554054055,
+        "p75": 112.34714673913044,
+        "min": 69.83741554054055,
+        "max": 143.5546875
+      },
+      "rms_std": {
+        "n": 5,
+        "median": 0.08838556706905365,
+        "p25": 0.05127891153097153,
+        "p75": 0.09175148606300354,
+        "min": 0.050527140498161316,
+        "max": 0.15017889440059662
+      },
+      "spectral_centroid_mean": {
+        "n": 5,
+        "median": 2424.4694693825004,
+        "p25": 2414.236244252465,
+        "p75": 2454.9020097123416,
+        "min": 2217.1921317196093,
+        "max": 2709.427083399113
+      }
+    },
+    "Retail": {
+      "color_gap_deg": {
+        "n": 15,
+        "median": 25.2125327494889,
+        "p25": 4.6345634505707665,
+        "p75": 156.63325512181433,
+        "min": 2.451042414302435,
+        "max": 177.93640257598372
+      },
+      "brand_anchor": {
+        "n": 15,
+        "median": 0.2625107750425051,
+        "p25": 0.053134440467563604,
+        "p75": 0.5978582949521989,
+        "min": 0.0,
+        "max": 0.8918589945108489
+      },
+      "diversity": {
+        "n": 15,
+        "median": 26.301635536171926,
+        "p25": 20.511302525206624,
+        "p75": 29.758988240391382,
+        "min": 15.388527959209656,
+        "max": 31.097660152133432
+      },
+      "sat_std": {
+        "n": 15,
+        "median": 0.1254721758197834,
+        "p25": 0.07099337618224373,
+        "p75": 0.23619660002638576,
+        "min": 0.05421004119744573,
+        "max": 0.36244291517903415
+      },
+      "voice_fraction": {
+        "n": 15,
+        "median": 0.835157936706552,
+        "p25": 0.6973195489543158,
+        "p75": 0.9105527254526868,
+        "min": 0.562539436346652,
+        "max": 1.0
+      },
+      "music_fraction": {
+        "n": 15,
+        "median": 0.16484206329344797,
+        "p25": 0.08944727454731316,
+        "p75": 0.2748109989215409,
+        "min": 0.0,
+        "max": 0.41848150606172496
+      },
+      "tempo_bpm": {
+        "n": 15,
+        "median": 123.046875,
+        "p25": 117.45383522727273,
+        "p75": 136.376953125,
+        "min": 89.10290948275862,
+        "max": 172.265625
+      },
+      "rms_std": {
+        "n": 15,
+        "median": 0.04222220927476883,
+        "p25": 0.022325885482132435,
+        "p75": 0.06888239085674286,
+        "min": 0.01835072971880436,
+        "max": 0.09391700476408005
+      },
+      "spectral_centroid_mean": {
+        "n": 15,
+        "median": 2533.0111748507748,
+        "p25": 2203.8423265774613,
+        "p75": 2692.25373386887,
+        "min": 1579.1927835578012,
+        "max": 2923.4257291413865
+      }
+    },
+    "Telecom": {
+      "color_gap_deg": {
+        "n": 10,
+        "median": 6.311862547932009,
+        "p25": 4.756717638326753,
+        "p75": 16.072628970414982,
+        "min": 1.017932301821166,
+        "max": 101.85114227749077
+      },
+      "brand_anchor": {
+        "n": 10,
+        "median": 0.20437833596149396,
+        "p25": 0.18134877004367453,
+        "p75": 0.27398921992926356,
+        "min": 0.08943994356713023,
+        "max": 0.6675305446903956
+      },
+      "diversity": {
+        "n": 10,
+        "median": 26.998020619806994,
+        "p25": 25.442713502428596,
+        "p75": 28.00858186342488,
+        "min": 19.088651094686373,
+        "max": 30.27474131517063
+      },
+      "sat_std": {
+        "n": 10,
+        "median": 0.2264258815174266,
+        "p25": 0.20544261230366556,
+        "p75": 0.2619349406099754,
+        "min": 0.14792315192754218,
+        "max": 0.3077701076264112
+      },
+      "voice_fraction": {
+        "n": 10,
+        "median": 0.7239900787011393,
+        "p25": 0.6760189324322273,
+        "p75": 0.7942359327978713,
+        "min": 0.6009548855769047,
+        "max": 0.9433770187512244
+      },
+      "music_fraction": {
+        "n": 10,
+        "median": 0.23964593000781514,
+        "p25": 0.13719097296079447,
+        "p75": 0.30842411832004346,
+        "min": 0.05662298124877563,
+        "max": 0.3990451144230953
+      },
+      "tempo_bpm": {
+        "n": 10,
+        "median": 129.52302631578948,
+        "p25": 118.85209517045455,
+        "p75": 143.5546875,
+        "min": 89.10290948275862,
+        "max": 184.5703125
+      },
+      "rms_std": {
+        "n": 10,
+        "median": 0.06222394481301308,
+        "p25": 0.053301469422876835,
+        "p75": 0.07679875381290913,
+        "min": 0.034434348344802856,
+        "max": 0.14566318690776825
+      },
+      "spectral_centroid_mean": {
+        "n": 10,
+        "median": 2321.846678729731,
+        "p25": 2235.126789187042,
+        "p75": 2632.471494397156,
+        "min": 1995.2262102596087,
+        "max": 2938.9200674897706
+      }
+    }
+  }
+}

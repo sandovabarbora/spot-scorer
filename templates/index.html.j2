@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spot Scorer — Czech TV advertising fingerprint, on demand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>{{ inline_css }}</style>
+</head>
+<body>
+<main>
+
+<header class="masthead">
+    <p class="eyebrow">A tool, 2026 &mdash; companion to
+        <a href="https://sandovabarbora.github.io/color-fingerprint-cz/" style="color:inherit;">Color fingerprint</a> +
+        <a href="https://sandovabarbora.github.io/sound-fingerprint-cz/" style="color:inherit;">Sound fingerprint</a>
+    </p>
+    <h1>Spot Scorer.</h1>
+    <p class="lede">Pick a spot. Get its color and audio metrics, the sector defaults it lives inside, and three to five numerical targets it would need to hit to read as distinctive. {{ n_spots }} spots, {{ n_brands }} brands.</p>
+    <p class="byline">By Barbora Šandová. <a href="https://github.com/sandovabarbora/spot-scorer">Source on GitHub</a>.</p>
+</header>
+
+<section class="picker-block">
+    <label for="spot-picker" class="picker-label">Pick a spot</label>
+    <select id="spot-picker" class="picker"></select>
+    <div id="spot-header" class="spot-header"></div>
+</section>
+
+<section>
+    <div class="section-label"><span class="num">01</span><h2>Color score</h2></div>
+    <div id="color-panel" class="score-grid"></div>
+</section>
+
+<section>
+    <div class="section-label"><span class="num">02</span><h2>Audio score</h2></div>
+    <div id="audio-panel" class="score-grid"></div>
+</section>
+
+<section>
+    <div class="section-label"><span class="num">03</span><h2>Sector context</h2></div>
+    <p class="section-intro">Each gauge shows where this spot sits inside its sector's distribution. The shaded band is the inter-quartile range (p25 to p75); the dashed line is the median. A dot near the edge of the band means the spot is already pushing toward distinctive; a dot in the middle means it lives at the category default.</p>
+    <div id="sector-panel"></div>
+</section>
+
+<section>
+    <div class="section-label"><span class="num">04</span><h2>Brief targets</h2></div>
+    <p class="section-intro">If the goal is a distinctive spot in this category, these are the numerical moves. Each target takes the spot OUT of the inter-quartile box on a single axis. Pick one or two; trying to move all of them at once defeats the focus.</p>
+    <ol id="targets-panel" class="targets"></ol>
+</section>
+
+<footer>
+    <div>
+        <h4>How it works</h4>
+        <p>Static page, vanilla JavaScript, no backend. Data inlined from the two sister studies.</p>
+    </div>
+    <div>
+        <h4>Code</h4>
+        <p><a href="https://github.com/sandovabarbora/spot-scorer">spot-scorer</a></p>
+        <p><a href="https://github.com/sandovabarbora/color-fingerprint-cz">color-fingerprint-cz</a></p>
+        <p><a href="https://github.com/sandovabarbora/sound-fingerprint-cz">sound-fingerprint-cz</a></p>
+    </div>
+    <div>
+        <h4>Disclaimer</h4>
+        <p>Analysis of publicly available video material. Brands and campaigns are referenced for analytical purposes only. No agency attribution is implied.</p>
+    </div>
+</footer>
+
+</main>
+
+<script>
+window.SPOT_DATA = {{ inline_data | safe }};
+
+(function () {
+    const data = window.SPOT_DATA;
+    const SVG_NS = "http://www.w3.org/2000/svg";
+
+    const COLOR_METRICS = [
+        { key: "color_gap_deg",   label: "Brand-color gap",       fmt: v => v.toFixed(0) + "°", range: [0, 180] },
+        { key: "brand_anchor",    label: "Brand-color presence",  fmt: v => (v * 100).toFixed(0) + "%", range: [0, 1] },
+        { key: "diversity",       label: "Palette diversity",     fmt: v => v.toFixed(1), range: [10, 35] },
+        { key: "sat_std",         label: "Saturation tension",    fmt: v => v.toFixed(2), range: [0, 0.3] },
+    ];
+    const AUDIO_METRICS = [
+        { key: "voice_fraction",  label: "Voice fraction",        fmt: v => (v * 100).toFixed(0) + "%", range: [0, 1] },
+        { key: "music_fraction",  label: "Music fraction",        fmt: v => (v * 100).toFixed(0) + "%", range: [0, 1] },
+        { key: "tempo_bpm",       label: "Tempo",                 fmt: v => v.toFixed(0) + " bpm", range: [60, 200] },
+        { key: "rms_std",         label: "Dynamic range",         fmt: v => v.toFixed(2), range: [0, 0.2] },
+    ];
+    const SECTOR_METRICS = [...COLOR_METRICS, ...AUDIO_METRICS];
+
+    // ---- DOM helpers (no innerHTML; safe by construction) ------------------
+    function el(tag, opts) {
+        const e = document.createElement(tag);
+        if (opts) {
+            if (opts.cls) e.className = opts.cls;
+            if (opts.text !== undefined) e.textContent = opts.text;
+            if (opts.style) Object.assign(e.style, opts.style);
+            if (opts.attrs) for (const k in opts.attrs) e.setAttribute(k, opts.attrs[k]);
+        }
+        return e;
+    }
+
+    function svg(tag, attrs) {
+        const e = document.createElementNS(SVG_NS, tag);
+        if (attrs) for (const k in attrs) e.setAttribute(k, attrs[k]);
+        return e;
+    }
+
+    function clear(node) {
+        while (node.firstChild) node.removeChild(node.firstChild);
+    }
+
+    // ---- Build the spot picker grouped by brand ----------------------------
+    const picker = document.getElementById("spot-picker");
+    const byBrand = {};
+    data.spots.forEach(s => {
+        if (!byBrand[s.brand]) byBrand[s.brand] = [];
+        byBrand[s.brand].push(s);
+    });
+    Object.keys(byBrand).sort().forEach(brand => {
+        const group = document.createElement("optgroup");
+        group.label = brand;
+        byBrand[brand].forEach(s => {
+            const opt = document.createElement("option");
+            opt.value = s.spot_id;
+            // pretty label: strip "<brand>_NN_" prefix and underscores
+            const trimmed = s.spot_id.replace(/^[a-z0-9_]+?_\d{2}_/, "").replace(/_/g, " ").trim();
+            opt.textContent = trimmed || s.spot_id;
+            group.appendChild(opt);
+        });
+        picker.appendChild(group);
+    });
+
+    // ---- Build a gauge SVG via DOM ----------------------------------------
+    function buildGauge(value, p25, p75, median, lo, hi, anchor) {
+        const W = 280, H = 28;
+        const padL = 6, padR = 6;
+        const usable = W - padL - padR;
+        const x = v => padL + ((v - lo) / (hi - lo)) * usable;
+
+        const root = svg("svg", {
+            class: "gauge",
+            viewBox: `0 0 ${W} ${H}`,
+        });
+        root.appendChild(svg("line", {
+            x1: padL, y1: H / 2, x2: W - padR, y2: H / 2,
+            stroke: "#E2DDD0", "stroke-width": "2",
+        }));
+        const bandW = Math.max(x(p75) - x(p25), 1);
+        root.appendChild(svg("rect", {
+            x: x(p25), y: H / 2 - 4, width: bandW, height: 8,
+            fill: "#E2DDD0",
+        }));
+        root.appendChild(svg("line", {
+            x1: x(median), y1: H / 2 - 6, x2: x(median), y2: H / 2 + 6,
+            stroke: "#888", "stroke-width": "1", "stroke-dasharray": "2 2",
+        }));
+        root.appendChild(svg("circle", {
+            cx: x(value), cy: H / 2, r: "5",
+            fill: anchor || "#181818", stroke: "#181818", "stroke-width": "1",
+        }));
+        return root;
+    }
+
+    function metricCard(spot, metric, bench, anchor) {
+        const value = spot[metric.key];
+        const card = el("div", { cls: "metric-card" });
+        card.appendChild(el("p", { cls: "metric-label", text: metric.label }));
+        card.appendChild(el("p", { cls: "metric-value", text: metric.fmt(value) }));
+        if (bench) {
+            const lo = Math.min(bench.min, metric.range[0]);
+            const hi = Math.max(bench.max, metric.range[1]);
+            card.appendChild(buildGauge(value, bench.p25, bench.p75, bench.median, lo, hi, anchor));
+            let pos;
+            if (value < bench.p25) pos = "below sector p25";
+            else if (value > bench.p75) pos = "above sector p75";
+            else pos = "inside sector inter-quartile range";
+            card.appendChild(el("p", { cls: "metric-note", text: pos }));
+        }
+        return card;
+    }
+
+    function sectorRow(spot, metric, bench, anchor) {
+        const wrap = el("div", { cls: "sector-row" });
+        wrap.appendChild(el("p", { cls: "sector-row-label", text: metric.label }));
+        wrap.appendChild(el("p", { cls: "sector-row-value", text: metric.fmt(spot[metric.key]) }));
+        const lo = Math.min(bench.min, metric.range[0]);
+        const hi = Math.max(bench.max, metric.range[1]);
+        wrap.appendChild(buildGauge(spot[metric.key], bench.p25, bench.p75, bench.median, lo, hi, anchor));
+        wrap.appendChild(el("p", {
+            cls: "sector-row-context",
+            text: `sector median ${metric.fmt(bench.median)}, IQR ${metric.fmt(bench.p25)} to ${metric.fmt(bench.p75)}`,
+        }));
+        return wrap;
+    }
+
+    // ---- Render -----------------------------------------------------------
+    function render(spotId) {
+        const spot = data.spots.find(s => s.spot_id === spotId);
+        if (!spot) return;
+        const bench = data.sector_benchmarks[spot.sector] || {};
+
+        // Header
+        const header = document.getElementById("spot-header");
+        clear(header);
+        header.appendChild(el("span", { cls: "spot-dot", style: { background: spot.anchor_hex }}));
+        header.appendChild(el("span", { cls: "spot-brand", text: spot.brand }));
+        header.appendChild(el("span", { cls: "spot-sep", text: " · " }));
+        header.appendChild(el("span", { cls: "spot-sector", text: spot.sector }));
+        header.appendChild(el("span", { cls: "spot-sep", text: " · " }));
+        header.appendChild(el("span", { cls: "spot-key", text: `${spot.key} ${spot.mode}` }));
+        header.appendChild(el("span", { cls: "spot-sep", text: " · " }));
+        header.appendChild(el("span", { cls: "spot-arc", text: `arc ${spot.arc_shape}` }));
+
+        // Color + audio panels
+        const colorPanel = document.getElementById("color-panel");
+        clear(colorPanel);
+        COLOR_METRICS.forEach(m => colorPanel.appendChild(metricCard(spot, m, bench[m.key], spot.anchor_hex)));
+
+        const audioPanel = document.getElementById("audio-panel");
+        clear(audioPanel);
+        AUDIO_METRICS.forEach(m => audioPanel.appendChild(metricCard(spot, m, bench[m.key], spot.anchor_hex)));
+
+        // Sector panel
+        const sectorPanel = document.getElementById("sector-panel");
+        clear(sectorPanel);
+        const grid = el("div", { cls: "sector-row-grid" });
+        SECTOR_METRICS.forEach(m => {
+            const b = bench[m.key];
+            if (b) grid.appendChild(sectorRow(spot, m, b, spot.anchor_hex));
+        });
+        sectorPanel.appendChild(grid);
+
+        // Brief targets
+        const targets = document.getElementById("targets-panel");
+        clear(targets);
+        if (!spot.brief_targets || spot.brief_targets.length === 0) {
+            targets.appendChild(el("li", {
+                cls: "target-empty",
+                text: "This spot already sits outside the sector inter-quartile range on every measured axis.",
+            }));
+            return;
+        }
+        spot.brief_targets.forEach(t => {
+            const li = el("li", { cls: "target-item" });
+            const meta = SECTOR_METRICS.find(m => m.key === t.metric);
+            const label = meta ? meta.label : t.metric;
+            const fmt = meta ? meta.fmt : (v => v.toFixed(2));
+            li.appendChild(el("p", { cls: "target-metric", text: label }));
+            const move = el("p", { cls: "target-move" });
+            move.appendChild(document.createTextNode(`Move ${t.direction}: from `));
+            move.appendChild(el("span", { cls: "cur", text: fmt(t.current) }));
+            move.appendChild(document.createTextNode(" to "));
+            move.appendChild(el("span", { cls: "tgt", text: fmt(t.target) }));
+            li.appendChild(move);
+            li.appendChild(el("p", { cls: "target-rationale", text: t.rationale }));
+            targets.appendChild(li);
+        });
+    }
+
+    // Initial render
+    const first = data.spots[0]?.spot_id;
+    if (first) {
+        picker.value = first;
+        render(first);
+    }
+    picker.addEventListener("change", e => render(e.target.value));
+})();
+</script>
+</body>
+</html>
