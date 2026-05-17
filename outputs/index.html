@@ -960,9 +960,30 @@ footer a:hover { color: var(--accent); }
 </header>
 
 
-<section class="url-block url-block-disabled">
+<section class="url-block">
     <p class="url-label">Score any video</p>
-    <p class="url-help">Backend not deployed in this build. To enable: deploy <code>backend/modal_app.py</code> to Modal and set <code>MODAL_ENDPOINT</code> before <code>make build</code>. See the README.</p>
+    <p class="url-help">Paste a YouTube link (most reliable), Facebook public post, or Instagram public post. Pick the brand's nearest sector for benchmark comparison. First call cold-starts the backend (~30s), subsequent calls take 10-25s.</p>
+    <div class="url-form">
+        <input id="url-input" type="url" class="url-input" placeholder="https://www.youtube.com/watch?v=..." />
+        <select id="url-sector" class="url-sector">
+            <option value="All">All sectors</option>
+
+            <option value="Automotive">Automotive</option>
+
+            <option value="Banking">Banking</option>
+
+            <option value="Beverage">Beverage</option>
+
+            <option value="QSR">QSR</option>
+
+            <option value="Retail">Retail</option>
+
+            <option value="Telecom">Telecom</option>
+
+        </select>
+        <button id="url-submit" class="url-submit" type="button">Score</button>
+    </div>
+    <p id="url-status" class="url-status" hidden></p>
 </section>
 
 
@@ -4279,7 +4300,7 @@ window.SPOT_DATA = {
     }
   }
 };
-window.MODAL_ENDPOINT = "";
+window.MODAL_ENDPOINT = "https://sandovabarb--spot-scorer-score.modal.run";
 
 (function () {
     const data = window.SPOT_DATA;
