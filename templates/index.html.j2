@@ -21,8 +21,31 @@
     <p class="byline">By Barbora Šandová. <a href="https://github.com/sandovabarbora/spot-scorer">Source on GitHub</a>.</p>
 </header>
 
+{% if modal_endpoint %}
+<section class="url-block">
+    <p class="url-label">Score any video</p>
+    <p class="url-help">Paste a YouTube link (most reliable), Facebook public post, or Instagram public post. Pick the brand's nearest sector for benchmark comparison. First call cold-starts the backend (~30s), subsequent calls take 10-25s.</p>
+    <div class="url-form">
+        <input id="url-input" type="url" class="url-input" placeholder="https://www.youtube.com/watch?v=..." />
+        <select id="url-sector" class="url-sector">
+            <option value="All">All sectors</option>
+{% for s in sectors %}
+            <option value="{{ s }}">{{ s }}</option>
+{% endfor %}
+        </select>
+        <button id="url-submit" class="url-submit" type="button">Score</button>
+    </div>
+    <p id="url-status" class="url-status" hidden></p>
+</section>
+{% else %}
+<section class="url-block url-block-disabled">
+    <p class="url-label">Score any video</p>
+    <p class="url-help">Backend not deployed in this build. To enable: deploy <code>backend/modal_app.py</code> to Modal and set <code>MODAL_ENDPOINT</code> before <code>make build</code>. See the README.</p>
+</section>
+{% endif %}
+
 <section class="picker-block">
-    <label for="spot-picker" class="picker-label">Pick a spot</label>
+    <label for="spot-picker" class="picker-label">Or pick from the {{ n_spots }}-spot reference corpus</label>
     <select id="spot-picker" class="picker"></select>
     <div id="spot-header" class="spot-header"></div>
 </section>
@@ -70,6 +93,7 @@
 
 <script>
 window.SPOT_DATA = {{ inline_data | safe }};
+window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
 
 (function () {
     const data = window.SPOT_DATA;
@@ -124,9 +148,10 @@ window.SPOT_DATA = {{ inline_data | safe }};
         byBrand[brand].forEach(s => {
             const opt = document.createElement("option");
             opt.value = s.spot_id;
-            // pretty label: strip "<brand>_NN_" prefix and underscores
-            const trimmed = s.spot_id.replace(/^[a-z0-9_]+?_\d{2}_/, "").replace(/_/g, " ").trim();
-            opt.textContent = trimmed || s.spot_id;
+            // Prefer the YouTube title (with diacritics); fall back to a
+            // de-slugged spot_id if the enrichment hasn't run.
+            const fallback = s.spot_id.replace(/^[a-z0-9_]+?_\d{2}_/, "").replace(/_/g, " ").trim();
+            opt.textContent = s.title && s.title !== s.spot_id ? s.title : (fallback || s.spot_id);
             group.appendChild(opt);
         });
         picker.appendChild(group);
@@ -196,22 +221,28 @@ window.SPOT_DATA = {{ inline_data | safe }};
     }
 
     // ---- Render -----------------------------------------------------------
-    function render(spotId) {
-        const spot = data.spots.find(s => s.spot_id === spotId);
+    function render(spot) {
         if (!spot) return;
-        const bench = data.sector_benchmarks[spot.sector] || {};
+        const bench = data.sector_benchmarks[spot.sector] || data.sector_benchmarks["All"] || {};
 
         // Header
         const header = document.getElementById("spot-header");
         clear(header);
-        header.appendChild(el("span", { cls: "spot-dot", style: { background: spot.anchor_hex }}));
-        header.appendChild(el("span", { cls: "spot-brand", text: spot.brand }));
+        if (spot.anchor_hex) {
+            header.appendChild(el("span", { cls: "spot-dot", style: { background: spot.anchor_hex }}));
+        }
+        const brandLabel = spot.brand || spot.title || "Submitted URL";
+        header.appendChild(el("span", { cls: "spot-brand", text: brandLabel }));
         header.appendChild(el("span", { cls: "spot-sep", text: " · " }));
-        header.appendChild(el("span", { cls: "spot-sector", text: spot.sector }));
-        header.appendChild(el("span", { cls: "spot-sep", text: " · " }));
-        header.appendChild(el("span", { cls: "spot-key", text: `${spot.key} ${spot.mode}` }));
-        header.appendChild(el("span", { cls: "spot-sep", text: " · " }));
-        header.appendChild(el("span", { cls: "spot-arc", text: `arc ${spot.arc_shape}` }));
+        header.appendChild(el("span", { cls: "spot-sector", text: spot.sector || "All" }));
+        if (spot.key && spot.mode) {
+            header.appendChild(el("span", { cls: "spot-sep", text: " · " }));
+            header.appendChild(el("span", { cls: "spot-key", text: `${spot.key} ${spot.mode}` }));
+        }
+        if (spot.arc_shape) {
+            header.appendChild(el("span", { cls: "spot-sep", text: " · " }));
+            header.appendChild(el("span", { cls: "spot-arc", text: `arc ${spot.arc_shape}` }));
+        }
 
         // Color + audio panels
         const colorPanel = document.getElementById("color-panel");
@@ -259,13 +290,66 @@ window.SPOT_DATA = {{ inline_data | safe }};
         });
     }
 
-    // Initial render
+    function renderById(id) {
+        const spot = data.spots.find(s => s.spot_id === id);
+        if (spot) render(spot);
+    }
+
+    // ---- URL submission (Modal endpoint) ----------------------------------
+    const endpoint = window.MODAL_ENDPOINT;
+    if (endpoint) {
+        const urlInput = document.getElementById("url-input");
+        const urlSector = document.getElementById("url-sector");
+        const urlBtn = document.getElementById("url-submit");
+        const status = document.getElementById("url-status");
+
+        function setStatus(text, kind) {
+            status.textContent = text;
+            status.hidden = !text;
+            status.className = "url-status" + (kind ? " url-status-" + kind : "");
+        }
+
+        async function submitUrl() {
+            const url = (urlInput.value || "").trim();
+            if (!/^https?:\/\//.test(url)) {
+                setStatus("Paste a URL starting with http:// or https://", "error");
+                return;
+            }
+            urlBtn.disabled = true;
+            setStatus("Downloading and analysing… first call cold-starts the backend (~30s).", "loading");
+            try {
+                const resp = await fetch(endpoint, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ url, sector: urlSector.value }),
+                });
+                const result = await resp.json();
+                if (!resp.ok || result.error) {
+                    setStatus("Backend error: " + (result.error || resp.statusText), "error");
+                    return;
+                }
+                setStatus("Scored. Result rendered below.", "ok");
+                // Build a spot-like object for render()
+                result.brand = result.brand || "Submitted URL";
+                result.anchor_hex = result.anchor_hex || "#181818";
+                render(result);
+            } catch (err) {
+                setStatus("Network error: " + err.message, "error");
+            } finally {
+                urlBtn.disabled = false;
+            }
+        }
+        urlBtn.addEventListener("click", submitUrl);
+        urlInput.addEventListener("keypress", e => { if (e.key === "Enter") submitUrl(); });
+    }
+
+    // Initial render from picker
     const first = data.spots[0]?.spot_id;
     if (first) {
         picker.value = first;
-        render(first);
+        renderById(first);
     }
-    picker.addEventListener("change", e => render(e.target.value));
+    picker.addEventListener("change", e => renderById(e.target.value));
 })();
 </script>
 </body>

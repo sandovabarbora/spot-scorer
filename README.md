@@ -35,6 +35,34 @@ make build       # renders outputs/index.html
 open outputs/index.html
 ```
 
+## Score any URL (Modal backend)
+
+The static page also has an optional "Score any video" section that
+accepts a YouTube / Facebook / Instagram public URL and runs the full
+pipeline on demand. This requires deploying `backend/modal_app.py` to
+[Modal](https://modal.com) (free tier is plenty).
+
+```bash
+# One-time: install modal client + authenticate
+uv add modal
+uv run modal token new
+
+# Deploy. Modal prints the endpoint URL on success.
+uv run modal deploy backend/modal_app.py
+
+# Save the printed endpoint into the build config and rebuild
+echo "https://<your-username>--spot-scorer-score.modal.run" > config/endpoint.txt
+make build
+```
+
+The frontend hides the URL form when `config/endpoint.txt` is absent,
+so committing without the endpoint is safe.
+
+**Platform support:** YouTube is the most reliable. Facebook public
+posts work for most URLs. Instagram Reels frequently fail (extractor
+breaks every few weeks). The graceful error message tells the user
+when a download or analysis stage fails.
+
 ## License
 
 - Code: MIT

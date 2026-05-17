@@ -33,6 +33,7 @@
       "rms_std": 0.08838556706905365,
       "spectral_centroid_mean": 2454.9020097123416,
       "onset_rate": 4.207691479047722,
+      "title": "Lúpež svetového menu: Ochutnaj, skôr ako to budeme musieť vrátiť",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -86,6 +87,7 @@
       "rms_std": 0.09175148606300354,
       "spectral_centroid_mean": 2414.236244252465,
       "onset_rate": 4.513088441236669,
+      "title": "Loupež světového menu: Ochutnej, než to budeme muset vrátit",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -139,6 +141,7 @@
       "rms_std": 0.15017889440059662,
       "spectral_centroid_mean": 2217.1921317196093,
       "onset_rate": 5.107399247555016,
+      "title": "Fakt si myslíš, že poznáš Priateľov? Dokáž to!",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -199,6 +202,7 @@
       "rms_std": 0.050527140498161316,
       "spectral_centroid_mean": 2424.4694693825004,
       "onset_rate": 5.240286319267036,
+      "title": "Fakt myslíš, že znáš Přátele? Dokaž to!",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -259,6 +263,7 @@
       "rms_std": 0.05127891153097153,
       "spectral_centroid_mean": 2709.427083399113,
       "onset_rate": 4.954217386620705,
+      "title": "Kto z Priateľov si ty?",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -319,6 +324,7 @@
       "rms_std": 0.0755809023976326,
       "spectral_centroid_mean": 2055.61791227907,
       "onset_rate": 5.990448041704181,
+      "title": "Kroužkujeme s Michalem Suchánkem a Richardem Genzerem | Potravinová sbírka v PENNY",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -372,6 +378,7 @@
       "rms_std": 0.04311157390475273,
       "spectral_centroid_mean": 1920.5439504419078,
       "onset_rate": 6.100056970438672,
+      "title": "Kroužkujeme s Michalem Suchánkem a Richardem Genzerem 15.4.",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -432,6 +439,7 @@
       "rms_std": 0.07519428431987762,
       "spectral_centroid_mean": 2271.111038307326,
       "onset_rate": 5.386261264141726,
+      "title": "Kroužkujeme s Danou Batulkovou a Evou Decastelo 8.4.",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -485,6 +493,7 @@
       "rms_std": 0.09391700476408005,
       "spectral_centroid_mean": 2136.5736148475967,
       "onset_rate": 3.7027845985058256,
+      "title": "Kroužkujeme s Danou Batulkovou a Evou Decastelo 1.4.",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -545,6 +554,7 @@
       "rms_std": 0.044143080711364746,
       "spectral_centroid_mean": 1579.1927835578012,
       "onset_rate": 4.395628984422358,
+      "title": "Kroužkujeme s Michalem Suchánkem a Richardem Genzerem 25.3.",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -598,6 +608,7 @@
       "rms_std": 0.03969436138868332,
       "spectral_centroid_mean": 2271.1325470924376,
       "onset_rate": 1.5433822332252474,
+      "title": "Pilsner Urquell - Alfons Mucha Ad",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -658,6 +669,7 @@
       "rms_std": 0.07079500705003738,
       "spectral_centroid_mean": 2504.443195501298,
       "onset_rate": 5.4913301524496685,
+      "title": "Mattoni Imuno: Podporte svoju imunitu s chuťou od Mattoni (20s)",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -718,6 +730,7 @@
       "rms_std": 0.04298130050301552,
       "spectral_centroid_mean": 2723.9164340442126,
       "onset_rate": 4.7728383568020485,
+      "title": "Mattoni Imuno",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -778,6 +791,7 @@
       "rms_std": 0.05938730388879776,
       "spectral_centroid_mean": 2349.6344434823577,
       "onset_rate": 4.516212432049478,
+      "title": "Pro všechny pozemské radosti: Ta parcela je stavební | Fio banka",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -838,6 +852,7 @@
       "rms_std": 0.0622941218316555,
       "spectral_centroid_mean": 2596.561255247051,
       "onset_rate": 4.928096044319684,
+      "title": "Pro všechny pozemské radosti: Na baličku zapomeň, ta stejně nebalí | Fio banka",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -891,6 +906,7 @@
       "rms_std": 0.05359151214361191,
       "spectral_centroid_mean": 2297.771089697721,
       "onset_rate": 3.727479921207449,
+      "title": "Pro všechny pozemské radosti: Krůtopřísný účet pro podnikatele | Fio banka",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -951,6 +967,7 @@
       "rms_std": 0.06168338283896446,
       "spectral_centroid_mean": 2221.18195365075,
       "onset_rate": 3.9117016800132407,
+      "title": "Pro všechny pozemské radosti: S námi nešlápnete vedle | Fio banka",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -1011,6 +1028,7 @@
       "rms_std": 0.05669235438108444,
       "spectral_centroid_mean": 2549.8633358150246,
       "onset_rate": 5.331869169677974,
+      "title": "Pro všechny pozemské radosti: Smartbroker je tady! | Fio banka",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -1071,6 +1089,7 @@
       "rms_std": 0.06645862013101578,
       "spectral_centroid_mean": 2390.9071849358174,
       "onset_rate": 3.628842888623966,
+      "title": "MAGENTA TV uvádí... Večerní program 3!",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -1131,6 +1150,7 @@
       "rms_std": 0.06331653147935867,
       "spectral_centroid_mean": 2260.0162981858084,
       "onset_rate": 4.259629931339463,
+      "title": "MAGENTA TV uvádí... Večerní program 3!",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -1191,6 +1211,7 @@
       "rms_std": 0.08024546504020691,
       "spectral_centroid_mean": 1995.2262102596087,
       "onset_rate": 3.6459672974462616,
+      "title": "T Fiber uvádí... Večerní program!",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -1251,6 +1272,7 @@
       "rms_std": 0.13962863385677338,
       "spectral_centroid_mean": 2231.1482306871717,
       "onset_rate": 3.494449698840161,
+      "title": "T Fiber uvádí... Večerní program 2!",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -1311,6 +1333,7 @@
       "rms_std": 0.14566318690776825,
       "spectral_centroid_mean": 2383.677059273654,
       "onset_rate": 2.511153985288798,
+      "title": "MAGENTA TV uvádí... Večerní program 2!",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -1371,6 +1394,7 @@
       "rms_std": 0.04379194602370262,
       "spectral_centroid_mean": 2938.9200674897706,
       "onset_rate": 4.778532779665282,
+      "title": "Nejlepší pevný internet v Česku!",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -1431,6 +1455,7 @@
       "rms_std": 0.05572071298956871,
       "spectral_centroid_mean": 2093.544818528759,
       "onset_rate": 4.475628996097318,
+      "title": "Stačí jednou říct",
       "brief_targets": [
         {
           "metric": "diversity",
@@ -1484,6 +1509,7 @@
       "rms_std": 0.034434348344802856,
       "spectral_centroid_mean": 2761.059665014642,
       "onset_rate": 5.754792164758189,
+      "title": "Už 20 let posouváme Česko dopředu!",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -1544,6 +1570,7 @@
       "rms_std": 0.05249505490064621,
       "spectral_centroid_mean": 2712.9929308842693,
       "onset_rate": 4.679066677738105,
+      "title": "20 let - Na ještě lepší spojení",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -1604,6 +1631,7 @@
       "rms_std": 0.06113135814666748,
       "spectral_centroid_mean": 2247.062464686652,
       "onset_rate": 5.1958422788919725,
+      "title": "Je tu GIGA Kombo",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -1664,6 +1692,7 @@
       "rms_std": 0.06373428553342819,
       "spectral_centroid_mean": 2577.915487449127,
       "onset_rate": 5.292353508661549,
+      "title": "Šťastné a bezpečné svátky s Komerční bankou",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -1717,6 +1746,7 @@
       "rms_std": 0.05625060200691223,
       "spectral_centroid_mean": 2493.749716577736,
       "onset_rate": 5.497145319401056,
+      "title": "Bezpečný účet zdarma s funkcí ověření bankéře a bonusem až 4 000 Kč pro nové klienty",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -1777,6 +1807,7 @@
       "rms_std": 0.026450006291270256,
       "spectral_centroid_mean": 2501.4232406994606,
       "onset_rate": 5.598944306797372,
+      "title": "Objevte nové gourmet receptury od Fresh Bistra",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -1837,6 +1868,7 @@
       "rms_std": 0.02186807617545128,
       "spectral_centroid_mean": 2585.6380829670643,
       "onset_rate": 5.259614348809652,
+      "title": "Dopřejte si vyjímečné chutě každý den",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -1897,6 +1929,7 @@
       "rms_std": 0.0625704973936081,
       "spectral_centroid_mean": 2700.7163971025907,
       "onset_rate": 4.309490466444037,
+      "title": "Každý rok darujeme více",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -1957,6 +1990,7 @@
       "rms_std": 0.037211570888757706,
       "spectral_centroid_mean": 2308.090111590279,
       "onset_rate": 5.035443144163415,
+      "title": "Sleva 15 % s Můj Albert na Nature's Promise a BIO",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -2017,6 +2051,7 @@
       "rms_std": 0.021193496882915497,
       "spectral_centroid_mean": 2923.4257291413865,
       "onset_rate": 5.700743294193687,
+      "title": "Vychutnejte si Albert Excellent",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -2077,6 +2112,7 @@
       "rms_std": 0.01835072971880436,
       "spectral_centroid_mean": 2792.1066856879497,
       "onset_rate": 5.240971435761923,
+      "title": "Vše pro skvělé grilování. To se vyplatí. Už od čtvrtka v Lidlu | Lidl Česká republika",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -2137,6 +2173,7 @@
       "rms_std": 0.02278369478881359,
       "spectral_centroid_mean": 2683.7910706351486,
       "onset_rate": 5.549263873159682,
+      "title": "Již ve čtvrtek v Lidlu aku produkty PARKSIDE | Lidl Česká republika",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -2197,6 +2234,7 @@
       "rms_std": 0.021576661616563797,
       "spectral_centroid_mean": 2629.2742547038333,
       "onset_rate": 5.395117654460803,
+      "title": "Vybírejte z více než 70 druhů zmrzlin 🍧. Už od čtvrtka v Lidlu | Lidl Česká republika",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -2257,6 +2295,7 @@
       "rms_std": 0.04222220927476883,
       "spectral_centroid_mean": 2763.287674592064,
       "onset_rate": 6.980078857135693,
+      "title": "Akční nabídka od čtvrtka. To se vyplatí. | Lidl Česká republika",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -2317,6 +2356,7 @@
       "rms_std": 0.08912794291973114,
       "spectral_centroid_mean": 2533.0111748507748,
       "onset_rate": 4.207691479047722,
+      "title": "Ovoce a zelenina z Lidlu. Tvoje čerstvá dávka každý den. | Lidl Česká republika",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -2377,6 +2417,7 @@
       "rms_std": 0.05647045746445656,
       "spectral_centroid_mean": 2056.1989151245098,
       "onset_rate": 5.525817353295291,
+      "title": "Škoda Peaq Explained 🚗 Clever Packaging, Huge Interior​",
       "brief_targets": [
         {
           "metric": "brand_anchor",
@@ -2437,6 +2478,7 @@
       "rms_std": 0.032623980194330215,
       "spectral_centroid_mean": 1644.664329949493,
       "onset_rate": 4.657459755341237,
+      "title": "Škoda DuoBell - The First Bike Bell Designed To Penetrate Noise-Cancelling Headphones",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -2497,6 +2539,7 @@
       "rms_std": 0.10603317618370056,
       "spectral_centroid_mean": 2429.9401679931734,
       "onset_rate": 5.360499635340161,
+      "title": "Meet Škoda Peaq: The Ultimate SUV for Space & Comfort​",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -2557,6 +2600,7 @@
       "rms_std": 0.10761752724647522,
       "spectral_centroid_mean": 2529.131458058713,
       "onset_rate": 4.779792994683078,
+      "title": "Big Possibilities in a Small Package: Meet the New Škoda Epiq",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -2617,6 +2661,7 @@
       "rms_std": 0.09316352754831314,
       "spectral_centroid_mean": 1999.3233992245302,
       "onset_rate": 4.772742577337109,
+      "title": "The All-electric 7-seater: Name Reveal",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -2670,6 +2715,7 @@
       "rms_std": 0.12969638407230377,
       "spectral_centroid_mean": 2062.629434961808,
       "onset_rate": 4.162287638385797,
+      "title": "Kofola MéněVíce - CZ (2022)",
       "brief_targets": [
         {
           "metric": "color_gap_deg",
@@ -2730,6 +2776,7 @@
       "rms_std": 0.05506440997123718,
       "spectral_centroid_mean": 1928.3779867461253,
       "onset_rate": 3.420683388714903,
+      "title": "Dovezeme auto na jakoukoliv pobočku.",
       "brief_targets": [
         {
           "metric": "brand_anchor",

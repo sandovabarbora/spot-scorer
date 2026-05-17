@@ -21,7 +21,7 @@ test:
 	uv run pytest
 
 lint:
-	uv run ruff check scripts tests
+	uv run ruff check scripts tests backend
 
 format:
 	uv run ruff format scripts tests

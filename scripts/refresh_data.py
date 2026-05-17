@@ -201,11 +201,21 @@ def _spot_brief_targets(
 # --- Main -----------------------------------------------------------------
 
 
+def _load_titles() -> dict[str, str]:
+    """Load spot_id -> readable title (with diacritics) if available."""
+    path = HERE / "data" / "titles.json"
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def main() -> None:
     color = _read_color_spots()
     sound = _read_sound_spots()
     merged = _join_by_spot_id(color, sound)
-    logger.info("Joined: %d spots across %d brands", len(merged), merged["brand"].nunique())
+    titles = _load_titles()
+    merged["title"] = merged["spot_id"].map(titles).fillna(merged["spot_id"])
+    logger.info("Joined: %d spots across %d brands (%d with titles)", len(merged), merged["brand"].nunique(), int(merged["spot_id"].isin(titles).sum()))
 
     metrics_for_bench = [
         "color_gap_deg",

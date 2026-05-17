@@ -16,3 +16,6 @@ wheels/
 .idea/
 .vscode/
 *.swp
+
+# Per-deploy Modal endpoint (each deploy gets a different URL)
+config/endpoint.txt
