@@ -778,6 +778,14 @@ footer a:hover { color: var(--accent); }
     outline-offset: 1px;
 }
 
+/* Suppress the native red box-shadow so the inline status message
+   ('YouTube — most reliable', 'Facebook public posts only', etc.)
+   is the only visible feedback. The browser's :invalid would otherwise
+   fire on partially-typed URLs and contradict the live status. */
+.url-input:invalid {
+    box-shadow: none;
+}
+
 .url-submit {
     font-family: var(--sans);
     font-size: 14px;
@@ -805,6 +813,7 @@ footer a:hover { color: var(--accent); }
 .url-status-loading { background: oklch(0.94 0.02 80); color: var(--ink); }
 .url-status-error   { background: oklch(0.94 0.06 25); color: var(--accent); }
 .url-status-ok      { background: oklch(0.94 0.04 145); color: oklch(0.30 0.10 145); }
+.url-status-warn    { background: oklch(0.94 0.05 80); color: oklch(0.40 0.10 65); }
 
 .url-example {
     margin: 10px 0 0;

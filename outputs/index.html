@@ -786,6 +786,14 @@ footer a:hover { color: var(--accent); }
     outline-offset: 1px;
 }
 
+/* Suppress the native red box-shadow so the inline status message
+   ('YouTube — most reliable', 'Facebook public posts only', etc.)
+   is the only visible feedback. The browser's :invalid would otherwise
+   fire on partially-typed URLs and contradict the live status. */
+.url-input:invalid {
+    box-shadow: none;
+}
+
 .url-submit {
     font-family: var(--sans);
     font-size: 14px;
@@ -813,6 +821,7 @@ footer a:hover { color: var(--accent); }
 .url-status-loading { background: oklch(0.94 0.02 80); color: var(--ink); }
 .url-status-error   { background: oklch(0.94 0.06 25); color: var(--accent); }
 .url-status-ok      { background: oklch(0.94 0.04 145); color: oklch(0.30 0.10 145); }
+.url-status-warn    { background: oklch(0.94 0.05 80); color: oklch(0.40 0.10 65); }
 
 .url-example {
     margin: 10px 0 0;
@@ -5123,6 +5132,41 @@ window.MODAL_ENDPOINT = "https://sandovabarb--spot-scorer-score.modal.run";
             status.hidden = !text;
             status.className = "url-status" + (kind ? " url-status-" + kind : "");
         }
+
+        // Live URL validation: gives the user a green/amber/red signal
+        // before they click SCORE, so they aren't burning a 30s backend
+        // round-trip on a URL the pipeline can't fetch (private posts,
+        // TikTok, unsupported domains).
+        function classifyUrl(raw) {
+            const trimmed = (raw || "").trim();
+            if (!trimmed) return { level: null, message: "" };
+            if (!/^https?:\/\//i.test(trimmed)) {
+                return { level: "error", message: "URL must start with http:// or https://" };
+            }
+            let host;
+            try { host = new URL(trimmed).hostname.toLowerCase().replace(/^www\./, ""); }
+            catch { return { level: "error", message: "That doesn't parse as a URL." }; }
+            if (host.endsWith("youtube.com") || host === "youtu.be") {
+                return { level: "ok", message: "YouTube — most reliable. Score works on most public videos." };
+            }
+            if (host.endsWith("facebook.com") || host.endsWith("fb.com") || host.endsWith("fb.watch")) {
+                return { level: "warn", message: "Facebook — public posts only. Login-walled posts will fail to fetch." };
+            }
+            if (host.endsWith("instagram.com")) {
+                return { level: "warn", message: "Instagram — public posts only. Login-walled reels will fail to fetch." };
+            }
+            if (host.endsWith("tiktok.com")) {
+                return { level: "warn", message: "TikTok — not yet tested. The scorer may fail or return partial results." };
+            }
+            return { level: "warn", message: "Untested domain. The pipeline works best on YouTube; this URL may fail." };
+        }
+
+        function validateOnInput() {
+            const cls = classifyUrl(urlInput.value);
+            if (!cls.level) { setStatus("", null); return; }
+            setStatus(cls.message, cls.level);
+        }
+        urlInput.addEventListener("input", validateOnInput);
 
         // Progressive status: cycles through plausible pipeline stages
         // while the backend works. Indicative, not actual streaming events

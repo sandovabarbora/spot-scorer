@@ -540,6 +540,41 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
             status.className = "url-status" + (kind ? " url-status-" + kind : "");
         }
 
+        // Live URL validation: gives the user a green/amber/red signal
+        // before they click SCORE, so they aren't burning a 30s backend
+        // round-trip on a URL the pipeline can't fetch (private posts,
+        // TikTok, unsupported domains).
+        function classifyUrl(raw) {
+            const trimmed = (raw || "").trim();
+            if (!trimmed) return { level: null, message: "" };
+            if (!/^https?:\/\//i.test(trimmed)) {
+                return { level: "error", message: "URL must start with http:// or https://" };
+            }
+            let host;
+            try { host = new URL(trimmed).hostname.toLowerCase().replace(/^www\./, ""); }
+            catch { return { level: "error", message: "That doesn't parse as a URL." }; }
+            if (host.endsWith("youtube.com") || host === "youtu.be") {
+                return { level: "ok", message: "YouTube — most reliable. Score works on most public videos." };
+            }
+            if (host.endsWith("facebook.com") || host.endsWith("fb.com") || host.endsWith("fb.watch")) {
+                return { level: "warn", message: "Facebook — public posts only. Login-walled posts will fail to fetch." };
+            }
+            if (host.endsWith("instagram.com")) {
+                return { level: "warn", message: "Instagram — public posts only. Login-walled reels will fail to fetch." };
+            }
+            if (host.endsWith("tiktok.com")) {
+                return { level: "warn", message: "TikTok — not yet tested. The scorer may fail or return partial results." };
+            }
+            return { level: "warn", message: "Untested domain. The pipeline works best on YouTube; this URL may fail." };
+        }
+
+        function validateOnInput() {
+            const cls = classifyUrl(urlInput.value);
+            if (!cls.level) { setStatus("", null); return; }
+            setStatus(cls.message, cls.level);
+        }
+        urlInput.addEventListener("input", validateOnInput);
+
         // Progressive status: cycles through plausible pipeline stages
         // while the backend works. Indicative, not actual streaming events
         // — but the stages match the real backend pipeline, so a viewer
