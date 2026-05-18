@@ -22,8 +22,26 @@
 </header>
 
 {% if modal_endpoint %}
+<section class="url-block url-block-compare">
+    <p class="url-label">Compare two spots</p>
+    <p class="url-help">Score two videos side-by-side. Useful for "us vs them" pitches: paste a client's draft + a competitor's spot, get a paired scorecard showing where they differ on the same sector benchmark. Both spots scored at the same sector context.</p>
+    <div class="cmp-form">
+        <input id="cmp-url-a" type="url" class="url-input" placeholder="Spot A &mdash; https://www.youtube.com/watch?v=..." />
+        <input id="cmp-url-b" type="url" class="url-input" placeholder="Spot B &mdash; https://www.youtube.com/watch?v=..." />
+        <select id="cmp-sector" class="url-sector">
+            <option value="All">All sectors</option>
+{% for s in sectors %}
+            <option value="{{ s }}">{{ s }}</option>
+{% endfor %}
+        </select>
+        <button id="cmp-submit" class="url-submit" type="button">Compare</button>
+    </div>
+    <p id="cmp-status" class="url-status" hidden></p>
+    <div id="cmp-results" class="cmp-results" hidden></div>
+</section>
+
 <section class="url-block">
-    <p class="url-label">Score any video</p>
+    <p class="url-label">Score one video</p>
     <p class="url-help">Paste a YouTube link (most reliable), Facebook public post, or Instagram public post. Pick the brand's nearest sector for benchmark comparison. First call cold-starts the backend (~30s), subsequent calls take 10-25s.</p>
     <div class="url-form">
         <input id="url-input" type="url" class="url-input" placeholder="https://www.youtube.com/watch?v=..." />
@@ -341,6 +359,131 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
         }
         urlBtn.addEventListener("click", submitUrl);
         urlInput.addEventListener("keypress", e => { if (e.key === "Enter") submitUrl(); });
+    }
+
+    // ---- Compare two spots ------------------------------------------------
+    if (endpoint) {
+        const cmpA = document.getElementById("cmp-url-a");
+        const cmpB = document.getElementById("cmp-url-b");
+        const cmpSector = document.getElementById("cmp-sector");
+        const cmpBtn = document.getElementById("cmp-submit");
+        const cmpStatus = document.getElementById("cmp-status");
+        const cmpResults = document.getElementById("cmp-results");
+
+        function setCmpStatus(text, kind) {
+            cmpStatus.textContent = text;
+            cmpStatus.hidden = !text;
+            cmpStatus.className = "url-status" + (kind ? " url-status-" + kind : "");
+        }
+
+        async function scoreOne(url, sector) {
+            const resp = await fetch(endpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ url, sector }),
+            });
+            const j = await resp.json();
+            if (!resp.ok || j.error) throw new Error(j.error || resp.statusText);
+            return j;
+        }
+
+        function shortLabel(url) {
+            try {
+                const u = new URL(url);
+                return u.hostname.replace(/^www\./, "") + u.pathname.slice(0, 18);
+            } catch { return url.slice(0, 40); }
+        }
+
+        function diffArrow(a, b, higherIsBetter) {
+            if (a == null || b == null) return "";
+            const d = a - b;
+            if (Math.abs(d) < 1e-6) return "=";
+            const aHigher = d > 0;
+            const cls = (aHigher === higherIsBetter) ? "diff-pos" : "diff-neg";
+            return `<span class="diff ${cls}">${aHigher ? "↑" : "↓"}</span>`;
+        }
+
+        function comparisonRow(metric, spotA, spotB, bench) {
+            const wrap = el("div", { cls: "cmp-row" });
+            wrap.appendChild(el("p", { cls: "cmp-row-label", text: metric.label }));
+
+            const aVal = spotA[metric.key];
+            const bVal = spotB[metric.key];
+
+            const aCell = el("div", { cls: "cmp-cell cmp-a" });
+            aCell.appendChild(el("p", { cls: "cmp-val", text: aVal != null ? metric.fmt(aVal) : "—" }));
+            if (bench && aVal != null) {
+                const lo = Math.min(bench.min, metric.range[0]);
+                const hi = Math.max(bench.max, metric.range[1]);
+                aCell.appendChild(buildGauge(aVal, bench.p25, bench.p75, bench.median, lo, hi, "#181818"));
+            }
+            wrap.appendChild(aCell);
+
+            const bCell = el("div", { cls: "cmp-cell cmp-b" });
+            bCell.appendChild(el("p", { cls: "cmp-val", text: bVal != null ? metric.fmt(bVal) : "—" }));
+            if (bench && bVal != null) {
+                const lo = Math.min(bench.min, metric.range[0]);
+                const hi = Math.max(bench.max, metric.range[1]);
+                bCell.appendChild(buildGauge(bVal, bench.p25, bench.p75, bench.median, lo, hi, "oklch(0.46 0.16 25)"));
+            }
+            wrap.appendChild(bCell);
+
+            return wrap;
+        }
+
+        function renderComparison(spotA, spotB) {
+            clear(cmpResults);
+            const sector = spotA.sector || spotB.sector || "All";
+            const bench = data.sector_benchmarks[sector] || data.sector_benchmarks["All"] || {};
+
+            // Header row
+            const headers = el("div", { cls: "cmp-row cmp-row-headers" });
+            headers.appendChild(el("p", { cls: "cmp-row-label", text: "" }));
+            headers.appendChild(el("div", { cls: "cmp-cell cmp-a" })).appendChild(
+                el("p", { cls: "cmp-hdr", text: shortLabel(spotA.url || "Spot A") })
+            );
+            headers.appendChild(el("div", { cls: "cmp-cell cmp-b" })).appendChild(
+                el("p", { cls: "cmp-hdr", text: shortLabel(spotB.url || "Spot B") })
+            );
+            cmpResults.appendChild(headers);
+
+            // Section: color
+            cmpResults.appendChild(el("p", { cls: "cmp-section", text: "Color" }));
+            COLOR_METRICS.forEach(m => cmpResults.appendChild(comparisonRow(m, spotA, spotB, bench[m.key])));
+
+            // Section: audio
+            cmpResults.appendChild(el("p", { cls: "cmp-section", text: "Audio" }));
+            AUDIO_METRICS.forEach(m => cmpResults.appendChild(comparisonRow(m, spotA, spotB, bench[m.key])));
+
+            cmpResults.hidden = false;
+        }
+
+        async function submitCompare() {
+            const a = (cmpA.value || "").trim();
+            const b = (cmpB.value || "").trim();
+            if (!/^https?:\/\//.test(a) || !/^https?:\/\//.test(b)) {
+                setCmpStatus("Both URLs must start with http:// or https://", "error");
+                return;
+            }
+            cmpBtn.disabled = true;
+            setCmpStatus("Scoring two spots in parallel… (~25-50s)", "loading");
+            try {
+                const [spotA, spotB] = await Promise.all([
+                    scoreOne(a, cmpSector.value),
+                    scoreOne(b, cmpSector.value),
+                ]);
+                setCmpStatus("Done. Side-by-side rendered below.", "ok");
+                renderComparison(spotA, spotB);
+            } catch (err) {
+                setCmpStatus("Backend error: " + err.message, "error");
+            } finally {
+                cmpBtn.disabled = false;
+            }
+        }
+        cmpBtn.addEventListener("click", submitCompare);
+        [cmpA, cmpB].forEach(input => {
+            input.addEventListener("keypress", e => { if (e.key === "Enter") submitCompare(); });
+        });
     }
 
     // Initial render from picker
