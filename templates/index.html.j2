@@ -50,6 +50,10 @@
         </select>
         <button id="cmp-submit" class="url-submit" type="button">Compare</button>
     </div>
+    <p class="url-example">
+        Try it:
+        <button type="button" id="cmp-example" class="url-example-btn">Pilsner Urquell &mdash; Alfons Mucha&nbsp;&nbsp;vs&nbsp;&nbsp;Lidl &mdash; Grilování</button>
+    </p>
     <p id="cmp-status" class="url-status" hidden></p>
     <div id="cmp-results" class="cmp-results" hidden></div>
 </section>
@@ -190,6 +194,46 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
     });
 
     // ---- Build a gauge SVG via DOM ----------------------------------------
+    function buildBriefGauge(lo_data, p25, median, p75, hi_data, target, pushLow) {
+        // Position-arrow gauge for the Brief Generator. Shows the full
+        // sector range, shades the IQR, ticks the median, and highlights
+        // the target the brief is pointing toward.
+        const W = 240, H = 30;
+        const padL = 4, padR = 4;
+        const usable = W - padL - padR;
+        const span = Math.max(hi_data - lo_data, 1e-6);
+        const x = v => padL + ((v - lo_data) / span) * usable;
+        const root = svg("svg", { class: "brief-gauge", viewBox: `0 0 ${W} ${H}` });
+        // Base line
+        root.appendChild(svg("line", {
+            x1: padL, y1: H / 2, x2: W - padR, y2: H / 2,
+            stroke: "#E2DDD0", "stroke-width": "1.5",
+        }));
+        // IQR band
+        root.appendChild(svg("rect", {
+            x: x(p25), y: H / 2 - 4, width: Math.max(x(p75) - x(p25), 1), height: 8,
+            fill: "#E2DDD0",
+        }));
+        // Median tick
+        root.appendChild(svg("line", {
+            x1: x(median), y1: H / 2 - 6, x2: x(median), y2: H / 2 + 6,
+            stroke: "#888", "stroke-width": "1", "stroke-dasharray": "2 2",
+        }));
+        // Target highlight (editorial-red wedge pointing in the push direction)
+        const tx = x(target);
+        // Draw a triangle pointing left (push lower) or right (push higher)
+        const triPath = pushLow
+            ? `M${tx - 6},${H / 2} L${tx},${H / 2 - 6} L${tx},${H / 2 + 6} Z`
+            : `M${tx + 6},${H / 2} L${tx},${H / 2 - 6} L${tx},${H / 2 + 6} Z`;
+        root.appendChild(svg("path", { d: triPath, fill: "oklch(0.46 0.16 25)" }));
+        // Vertical marker line at target
+        root.appendChild(svg("line", {
+            x1: tx, y1: H / 2 - 9, x2: tx, y2: H / 2 + 9,
+            stroke: "oklch(0.46 0.16 25)", "stroke-width": "2",
+        }));
+        return root;
+    }
+
     function buildGauge(value, p25, p75, median, lo, hi, anchor) {
         const W = 280, H = 28;
         const padL = 6, padR = 6;
@@ -396,6 +440,10 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
             card.appendChild(targetP);
 
             card.appendChild(el("p", { cls: "brief-card-phrase", text: phrase }));
+
+            // Position arrow gauge: ─ p25 ── median ── p75 ─ with target highlight
+            card.appendChild(buildBriefGauge(b.min, b.p25, b.median, b.p75, b.max, target, pushLow));
+
             card.appendChild(el("p", { cls: "brief-card-context",
                 text: `sector median ${m.fmt(b.median)}, IQR ${m.fmt(b.p25)}–${m.fmt(b.p75)}` }));
             grid.appendChild(card);
@@ -635,6 +683,20 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
         [cmpA, cmpB].forEach(input => {
             input.addEventListener("keypress", e => { if (e.key === "Enter") submitCompare(); });
         });
+
+        const cmpExample = document.getElementById("cmp-example");
+        if (cmpExample) {
+            cmpExample.addEventListener("click", () => {
+                cmpA.value = "https://www.youtube.com/watch?v=dLDHfeOEp38";
+                cmpB.value = "https://www.youtube.com/watch?v=Oz047619h6U";
+                const sectorSel = document.getElementById("cmp-sector");
+                if (sectorSel) {
+                    const beverageOpt = Array.from(sectorSel.options).find(o => o.value === "Beverage");
+                    sectorSel.value = beverageOpt ? "Beverage" : "All";
+                }
+                submitCompare();
+            });
+        }
     }
 
     // Initial render from picker

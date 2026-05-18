@@ -709,6 +709,33 @@ footer a:hover { color: var(--accent); }
 .url-status-error   { background: oklch(0.94 0.06 25); color: var(--accent); }
 .url-status-ok      { background: oklch(0.94 0.04 145); color: oklch(0.30 0.10 145); }
 
+.url-example {
+    margin: 10px 0 0;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+}
+
+.url-example-btn {
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0 0 1px;
+    margin-left: 6px;
+    font: inherit;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    color: var(--accent);
+    cursor: pointer;
+    border-bottom: 1px solid currentColor;
+}
+
+.url-example-btn:hover {
+    color: var(--ink);
+}
+
 @media (max-width: 640px) {
     .url-form { grid-template-columns: 1fr; }
 }
@@ -880,6 +907,14 @@ footer a:hover { color: var(--accent); }
     margin: 0;
     font-size: 11px;
     color: var(--ink-soft);
+}
+
+.brief-gauge {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: 30px;
+    margin: 4px 0 8px;
 }
 
 .brief-section-label {
