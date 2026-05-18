@@ -17,8 +17,8 @@
         <a href="https://sandovabarbora.github.io/sound-fingerprint-cz/" style="color:inherit;">Sound fingerprint</a>
     </p>
     <h1>Spot Scorer.</h1>
-    <p class="lede">Pick a spot. Get its color and audio metrics, the sector defaults it lives inside, and three to five numerical targets it would need to hit to read as distinctive. {{ n_spots }} spots, {{ n_brands }} brands.</p>
-    <p class="bio">Data &amp; cloud engineer at Alma Career. Built across a few weekends to test what brand competitive analysis looks like when it starts from public data instead of pitch decks. Part of the five-piece <a href="https://sandovabarbora.github.io/brand-reflection-cz/">Brand Reflection Series</a>; the only one with a live backend.</p>
+    <p class="lede">Paste any Czech TV spot URL. A multimodal AI reads the picture and the audio in parallel and scores the spot against the {{ n_brands }}-brand, {{ n_spots }}-spot sector benchmarks. Plus three to five numerical targets the spot would need to hit to read as distinctive.</p>
+    <p class="bio">Data &amp; cloud engineer at Alma Career. Built across a few weekends to test what brand competitive analysis looks like when it starts from public data instead of pitch decks. Part of the five-piece <a href="https://sandovabarbora.github.io/brand-reflection-cz/">Brand Reflection Series</a>; the only one with a live multimodal AI backend.</p>
     <p class="byline">By Barbora Šandová. <a href="https://github.com/sandovabarbora/spot-scorer">Source on GitHub</a>.</p>
 </header>
 
@@ -113,11 +113,11 @@
     <summary>What this is and isn&apos;t</summary>
     <div class="honest-body">
         <ul class="honest-list">
-            <li><strong>Sample is {{ n_spots }} spots from {{ n_brands }} brands, hand-curated.</strong> Sector benchmarks are computed within this set. Categories with few spots (under 5) have wide, unreliable percentiles; the targets the tool generates for those are directionally true, numerically noisy.</li>
-            <li><strong>The backend can fail on URLs.</strong> YouTube increasingly serves a bot challenge to yt-dlp without browser cookies, especially for less-popular videos. Facebook and Instagram public-post URLs are more reliable. If a fetch fails, the URL isn&apos;t scorable here &mdash; not a verdict about the spot.</li>
-            <li><strong>Color and audio metrics are first-order proxies, not the brand.</strong> Color gap, anchor share, music fraction, tempo are statistics over frames and audio samples. They capture <em>what the spot does mechanically</em>; they don&apos;t capture story, performance, or cultural fit. Use the tool to catch obvious drift, not to grade craft.</li>
-            <li><strong>The brief generator&apos;s targets are starter constraints, not commandments.</strong> The 3&ndash;5 numerical targets push the spot out of the inter-quartile range on one axis at a time. Hitting them is a useful check; whether hitting them is the right strategic move for the brand requires human judgment.</li>
-            <li><strong>One operator. No SLA.</strong> The Modal backend is on Bára&apos;s personal account, free tier. Cold start ~30s; concurrent users may queue. If you need this reliably for a production workflow, talk to her about a different deployment.</li>
+            <li><strong>Built from {{ n_spots }} Czech TV spots across {{ n_brands }} brands.</strong> Sectors with only 3&ndash;4 spots have wider, noisier benchmarks &mdash; the AI gives you direction in those cases, not precision. If you commission scoring for your client&apos;s category, we agree the spot set on the call and tighten the benchmark from there.</li>
+            <li><strong>YouTube blocks the scorer sometimes.</strong> Less-popular videos and newer uploads can hit YouTube&apos;s bot challenge. Facebook and Instagram public-post URLs are more reliable. If a fetch fails, it&apos;s an access issue &mdash; not a verdict on the spot.</li>
+            <li><strong>The AI measures what the spot does mechanically, not whether it&apos;s good.</strong> Vision AI reads color and frame structure; audio AI reads music vs voice, tempo, key. They catch &quot;the brand color is essentially absent&quot; or &quot;this spot is voice-led when the brief was image-led.&quot; They don&apos;t grade story, performance, or cultural fit. Use the tool to catch obvious drift in pre-mix, not to grade craft.</li>
+            <li><strong>The brief generator gives you a starting spec, not a verdict.</strong> The 3&ndash;5 targets push the spot out of the typical range on one axis at a time. Hitting them means the spot is mechanically more distinctive in those measurements; whether that&apos;s the right strategic move for the brand is the strategist&apos;s call.</li>
+            <li><strong>One operator, free-tier backend.</strong> The AI server is on a personal Modal account. Cold start is about 30 seconds; concurrent users may queue. If you want this in a production workflow with reliability guarantees, that&apos;s a deployment conversation, not a public tool.</li>
         </ul>
     </div>
 </details>
