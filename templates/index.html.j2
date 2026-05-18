@@ -99,13 +99,13 @@
 
 <section>
     <div class="section-label"><span class="num">03</span><h2>Sector context</h2></div>
-    <p class="section-intro">Each gauge shows where this spot sits inside its sector's distribution. The shaded band is the inter-quartile range (p25 to p75); the dashed line is the median. A dot near the edge of the band means the spot is already pushing toward distinctive; a dot in the middle means it lives at the category default.</p>
+    <p class="section-intro">Each gauge shows where this spot sits inside its sector. The shaded band covers the middle half of sector spots; the dashed line is the sector median. A dot near the edge of the band means the spot is already pushing toward distinctive; a dot in the middle means it lives at the category default.</p>
     <div id="sector-panel"></div>
 </section>
 
 <section>
     <div class="section-label"><span class="num">04</span><h2>Brief targets</h2></div>
-    <p class="section-intro">If the goal is a distinctive spot in this category, these are the numerical moves. Each target takes the spot OUT of the inter-quartile box on a single axis. Pick one or two; trying to move all of them at once defeats the focus.</p>
+    <p class="section-intro">If the goal is a distinctive spot in this category, these are the numerical moves. Each target pushes the spot OUT of the typical sector range on a single axis. Pick one or two; trying to move all of them at once defeats the focus.</p>
     <ol id="targets-panel" class="targets"></ol>
 </section>
 
@@ -288,9 +288,9 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
             const hi = Math.max(bench.max, metric.range[1]);
             card.appendChild(buildGauge(value, bench.p25, bench.p75, bench.median, lo, hi, anchor));
             let pos;
-            if (value < bench.p25) pos = "below sector p25";
-            else if (value > bench.p75) pos = "above sector p75";
-            else pos = "inside sector inter-quartile range";
+            if (value < bench.p25) pos = "below the sector's typical range";
+            else if (value > bench.p75) pos = "above the sector's typical range";
+            else pos = "inside the sector's typical range";
             card.appendChild(el("p", { cls: "metric-note", text: pos }));
         }
         return card;
@@ -305,7 +305,7 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
         wrap.appendChild(buildGauge(spot[metric.key], bench.p25, bench.p75, bench.median, lo, hi, anchor));
         wrap.appendChild(el("p", {
             cls: "sector-row-context",
-            text: `sector median ${metric.fmt(bench.median)}, IQR ${metric.fmt(bench.p25)} to ${metric.fmt(bench.p75)}`,
+            text: `sector median ${metric.fmt(bench.median)}, middle half ${metric.fmt(bench.p25)} to ${metric.fmt(bench.p75)}`,
         }));
         return wrap;
     }
@@ -359,7 +359,7 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
         if (!spot.brief_targets || spot.brief_targets.length === 0) {
             targets.appendChild(el("li", {
                 cls: "target-empty",
-                text: "This spot already sits outside the sector inter-quartile range on every measured axis.",
+                text: "This spot already sits outside the sector's typical range on every measured axis.",
             }));
             return;
         }
@@ -459,7 +459,7 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
             card.appendChild(buildBriefGauge(b.min, b.p25, b.median, b.p75, b.max, target, pushLow));
 
             card.appendChild(el("p", { cls: "brief-card-context",
-                text: `sector median ${m.fmt(b.median)}, IQR ${m.fmt(b.p25)}–${m.fmt(b.p75)}` }));
+                text: `sector median ${m.fmt(b.median)}, middle half ${m.fmt(b.p25)}–${m.fmt(b.p75)}` }));
             grid.appendChild(card);
         });
         briefResult.appendChild(grid);
@@ -516,7 +516,7 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
             `  · tempo              ${tempo.p25.toFixed(0)}–${tempo.p75.toFixed(0)} bpm  (target away from sector default)`,
             `  · dynamic range      ${dyn.p25.toFixed(2)}–${dyn.p75.toFixed(2)}`,
             ``,
-            `Position: push out of the sector IQR on at least two metrics.`,
+            `Position: push out of the sector's typical range on at least two metrics.`,
             `Decide brand-color vs world-color in the brief, not the cut.`,
             `Run draft through Spot Scorer on dailies, before picture lock.`,
         ];

@@ -155,7 +155,7 @@ def _spot_brief_targets(
                     "current": val,
                     "target": target,
                     "direction": "lower",
-                    "rationale": f"Move below sector p25 ({target:.2f}) to leave the {sector_bench['_sector']} default.",
+                    "rationale": f"Push below {target:.2f} to leave the {sector_bench['_sector']} default (the sector's lower edge).",
                 }
             )
         elif direction == "high" and val < bench["p75"]:
@@ -166,7 +166,7 @@ def _spot_brief_targets(
                     "current": val,
                     "target": target,
                     "direction": "higher",
-                    "rationale": f"Move above sector p75 ({target:.2f}) to leave the {sector_bench['_sector']} default.",
+                    "rationale": f"Push above {target:.2f} to leave the {sector_bench['_sector']} default (the sector's upper edge).",
                 }
             )
         elif direction == "extreme":
@@ -180,7 +180,7 @@ def _spot_brief_targets(
                         "current": val,
                         "target": target,
                         "direction": "lower",
-                        "rationale": f"Closer to lower-extreme: target below p25 ({target:.2f}).",
+                        "rationale": f"Closer to the low side; push below {target:.2f} (the sector's lower edge).",
                     }
                 )
             elif val < bench["p75"]:
@@ -191,7 +191,7 @@ def _spot_brief_targets(
                         "current": val,
                         "target": target,
                         "direction": "higher",
-                        "rationale": f"Closer to upper-extreme: target above p75 ({target:.2f}).",
+                        "rationale": f"Closer to the high side; push above {target:.2f} (the sector's upper edge).",
                     }
                 )
     # Limit to 5

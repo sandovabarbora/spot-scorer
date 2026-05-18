@@ -403,14 +403,14 @@ def brief_targets(spot: dict, sector_bench: dict, sector_name: str):
             out.append({
                 "metric": metric, "current": val, "target": target,
                 "direction": "lower",
-                "rationale": f"Move below sector p25 ({target:.2f}) to leave the {sector_name} default.",
+                "rationale": f"Push below {target:.2f} to leave the {sector_name} default (the sector's lower edge).",
             })
         elif direction == "high" and val < bench["p75"]:
             target = bench["p75"]
             out.append({
                 "metric": metric, "current": val, "target": target,
                 "direction": "higher",
-                "rationale": f"Move above sector p75 ({target:.2f}) to leave the {sector_name} default.",
+                "rationale": f"Push above {target:.2f} to leave the {sector_name} default (the sector's upper edge).",
             })
         elif direction == "extreme":
             d_low = val - bench["p25"]
@@ -420,14 +420,14 @@ def brief_targets(spot: dict, sector_bench: dict, sector_name: str):
                 out.append({
                     "metric": metric, "current": val, "target": target,
                     "direction": "lower",
-                    "rationale": f"Closer to lower-extreme: target below p25 ({target:.2f}).",
+                    "rationale": f"Closer to the low side; push below {target:.2f} (the sector's lower edge).",
                 })
             elif val < bench["p75"]:
                 target = bench["p75"]
                 out.append({
                     "metric": metric, "current": val, "target": target,
                     "direction": "higher",
-                    "rationale": f"Closer to upper-extreme: target above p75 ({target:.2f}).",
+                    "rationale": f"Closer to the high side; push above {target:.2f} (the sector's upper edge).",
                 })
     return out[:5]
 
