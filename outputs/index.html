@@ -623,7 +623,7 @@ footer {
     line-height: 1.55;
 }
 
-footer h4 {
+footer h3 {
     font-family: var(--sans);
     font-size: 10px;
     font-weight: 600;
@@ -1317,13 +1317,16 @@ em, i { font-style: normal; font-weight: 600; }</style>
     <p class="byline">By Barbora Šandová. <a href="https://github.com/sandovabarbora/spot-scorer">Source on GitHub</a>.</p>
 </header>
 
-<section class="brief-block">
-    <p class="brief-label">Generate a creative brief for a category</p>
-    <p class="url-help">Pick a category. Get the numerical spec a distinctive new spot in that category would need to hit, derived from where the existing 13 brands actually live. Read this as a starter creative brief, not a verdict.</p>
-    <div class="brief-form">
-        <select id="brief-sector" class="url-sector">
 
-            <option value="Automotive" selected>Automotive</option>
+<section class="url-block url-block-primary">
+    <p class="url-label">Score one video</p>
+    <p class="url-help">Paste a YouTube link (most reliable), Facebook public post, or Instagram public post. Pick the brand&apos;s nearest sector for benchmark comparison. First call cold-starts the backend (~30s); subsequent calls take 10-25s.</p>
+    <div class="url-form">
+        <input id="url-input" type="url" class="url-input" placeholder="https://www.youtube.com/watch?v=..." />
+        <select id="url-sector" class="url-sector">
+            <option value="All">All sectors</option>
+
+            <option value="Automotive">Automotive</option>
 
             <option value="Banking">Banking</option>
 
@@ -1335,16 +1338,15 @@ em, i { font-style: normal; font-weight: 600; }</style>
 
             <option value="Telecom">Telecom</option>
 
-            <option value="All">All sectors</option>
         </select>
+        <button id="url-submit" class="url-submit" type="button">Score</button>
     </div>
-    <div id="brief-result" class="brief-result"></div>
+    <p id="url-status" class="url-status" hidden></p>
 </section>
 
-
 <section class="url-block url-block-compare">
-    <p class="url-label">Compare two spots</p>
-    <p class="url-help">Score two videos side-by-side. Useful for "us vs them" pitches: paste a client's draft + a competitor's spot, get a paired scorecard showing where they differ on the same sector benchmark. Both spots scored at the same sector context.</p>
+    <p class="url-label">Or compare two spots side-by-side</p>
+    <p class="url-help">Score two videos head-to-head. Useful for &quot;us vs them&quot; pitches: paste a client&apos;s draft + a competitor&apos;s spot, get a paired scorecard showing where they differ on the same sector benchmark.</p>
     <div class="cmp-form">
         <input id="cmp-url-a" type="url" class="url-input" placeholder="Spot A &mdash; https://www.youtube.com/watch?v=..." />
         <input id="cmp-url-b" type="url" class="url-input" placeholder="Spot B &mdash; https://www.youtube.com/watch?v=..." />
@@ -1374,15 +1376,14 @@ em, i { font-style: normal; font-weight: 600; }</style>
     <div id="cmp-results" class="cmp-results" hidden></div>
 </section>
 
-<section class="url-block">
-    <p class="url-label">Score one video</p>
-    <p class="url-help">Paste a YouTube link (most reliable), Facebook public post, or Instagram public post. Pick the brand's nearest sector for benchmark comparison. First call cold-starts the backend (~30s), subsequent calls take 10-25s.</p>
-    <div class="url-form">
-        <input id="url-input" type="url" class="url-input" placeholder="https://www.youtube.com/watch?v=..." />
-        <select id="url-sector" class="url-sector">
-            <option value="All">All sectors</option>
 
-            <option value="Automotive">Automotive</option>
+<section class="brief-block">
+    <p class="brief-label">Or generate a brief for a whole category</p>
+    <p class="url-help">No URL handy? Pick a category. Get the numerical spec a distinctive new spot in that category would need to hit, derived from where the existing 13 brands actually live. Read this as a starter creative brief, not a verdict.</p>
+    <div class="brief-form">
+        <select id="brief-sector" class="url-sector">
+
+            <option value="Automotive" selected>Automotive</option>
 
             <option value="Banking">Banking</option>
 
@@ -1394,12 +1395,11 @@ em, i { font-style: normal; font-weight: 600; }</style>
 
             <option value="Telecom">Telecom</option>
 
+            <option value="All">All sectors</option>
         </select>
-        <button id="url-submit" class="url-submit" type="button">Score</button>
     </div>
-    <p id="url-status" class="url-status" hidden></p>
+    <div id="brief-result" class="brief-result"></div>
 </section>
-
 
 <section class="picker-block">
     <label for="spot-picker" class="picker-label">Or pick from the 47-spot reference corpus</label>
@@ -1444,17 +1444,17 @@ em, i { font-style: normal; font-weight: 600; }</style>
 
 <footer>
     <div>
-        <h4>How it works</h4>
+        <h3>How it works</h3>
         <p>Static page, vanilla JavaScript, no backend. Data inlined from the two sister studies.</p>
     </div>
     <div>
-        <h4>Code</h4>
+        <h3>Code</h3>
         <p><a href="https://github.com/sandovabarbora/spot-scorer">spot-scorer</a></p>
         <p><a href="https://github.com/sandovabarbora/color-fingerprint-cz">color-fingerprint-cz</a></p>
         <p><a href="https://github.com/sandovabarbora/sound-fingerprint-cz">sound-fingerprint-cz</a></p>
     </div>
     <div>
-        <h4>Disclaimer</h4>
+        <h3>Disclaimer</h3>
         <p>Analysis of publicly available video material. Brands and campaigns are referenced for analytical purposes only. No agency attribution is implied.</p>
     </div>
 </footer>
@@ -5124,6 +5124,18 @@ window.MODAL_ENDPOINT = "https://sandovabarb--spot-scorer-score.modal.run";
             status.className = "url-status" + (kind ? " url-status-" + kind : "");
         }
 
+        // Progressive status: cycles through plausible pipeline stages
+        // while the backend works. Indicative, not actual streaming events
+        // — but the stages match the real backend pipeline, so a viewer
+        // can tell the page is alive during the 10-30s wait.
+        const SCORE_STAGES = [
+            "Probing video metadata… first call cold-starts the backend (~30s).",
+            "Downloading frames and audio…",
+            "Vision AI reading frames…",
+            "Audio AI separating speech and music…",
+            "Computing sector benchmarks…",
+        ];
+
         async function submitUrl() {
             const url = (urlInput.value || "").trim();
             if (!/^https?:\/\//.test(url)) {
@@ -5131,7 +5143,12 @@ window.MODAL_ENDPOINT = "https://sandovabarb--spot-scorer-score.modal.run";
                 return;
             }
             urlBtn.disabled = true;
-            setStatus("Downloading and analysing… first call cold-starts the backend (~30s).", "loading");
+            let stageIdx = 0;
+            setStatus(SCORE_STAGES[0], "loading");
+            const stageTimer = setInterval(() => {
+                stageIdx = Math.min(stageIdx + 1, SCORE_STAGES.length - 1);
+                setStatus(SCORE_STAGES[stageIdx], "loading");
+            }, 5000);
             try {
                 const resp = await fetch(endpoint, {
                     method: "POST",
@@ -5151,6 +5168,7 @@ window.MODAL_ENDPOINT = "https://sandovabarb--spot-scorer-score.modal.run";
             } catch (err) {
                 setStatus("Network error: " + err.message, "error");
             } finally {
+                clearInterval(stageTimer);
                 urlBtn.disabled = false;
             }
         }
@@ -5255,6 +5273,14 @@ window.MODAL_ENDPOINT = "https://sandovabarb--spot-scorer-score.modal.run";
             cmpResults.hidden = false;
         }
 
+        const CMP_STAGES = [
+            "Probing both videos… first call cold-starts the backend (~30s).",
+            "Downloading frames and audio for both spots…",
+            "Vision AI reading frames in parallel…",
+            "Audio AI separating speech and music…",
+            "Aligning both scorecards to the same sector benchmark…",
+        ];
+
         async function submitCompare() {
             const a = (cmpA.value || "").trim();
             const b = (cmpB.value || "").trim();
@@ -5263,7 +5289,12 @@ window.MODAL_ENDPOINT = "https://sandovabarb--spot-scorer-score.modal.run";
                 return;
             }
             cmpBtn.disabled = true;
-            setCmpStatus("Scoring two spots in parallel… (~25-50s)", "loading");
+            let stageIdx = 0;
+            setCmpStatus(CMP_STAGES[0], "loading");
+            const stageTimer = setInterval(() => {
+                stageIdx = Math.min(stageIdx + 1, CMP_STAGES.length - 1);
+                setCmpStatus(CMP_STAGES[stageIdx], "loading");
+            }, 6000);
             try {
                 const [spotA, spotB] = await Promise.all([
                     scoreOne(a, cmpSector.value),
@@ -5274,6 +5305,7 @@ window.MODAL_ENDPOINT = "https://sandovabarb--spot-scorer-score.modal.run";
             } catch (err) {
                 setCmpStatus("Backend error: " + err.message, "error");
             } finally {
+                clearInterval(stageTimer);
                 cmpBtn.disabled = false;
             }
         }
