@@ -52,7 +52,7 @@
     </div>
     <p class="url-example">
         Try it:
-        <button type="button" id="cmp-example" class="url-example-btn">Pilsner Urquell &mdash; Alfons Mucha&nbsp;&nbsp;vs&nbsp;&nbsp;Lidl &mdash; Grilování</button>
+        <button type="button" id="cmp-example" class="url-example-btn">Pilsner Urquell (Alfons Mucha) vs Lidl (Grilování)</button>
     </p>
     <p id="cmp-status" class="url-status" hidden></p>
     <div id="cmp-results" class="cmp-results" hidden></div>
@@ -686,15 +686,27 @@ window.MODAL_ENDPOINT = {{ modal_endpoint | tojson }};
 
         const cmpExample = document.getElementById("cmp-example");
         if (cmpExample) {
+            // Render the example from corpus spots directly — no backend
+            // call. Real data (both spots are in the corpus with full
+            // color + audio features), zero cold start, zero YouTube bot
+            // challenge. Keeps the demo reliable for first-time visitors.
             cmpExample.addEventListener("click", () => {
-                cmpA.value = "https://www.youtube.com/watch?v=dLDHfeOEp38";
-                cmpB.value = "https://www.youtube.com/watch?v=Oz047619h6U";
-                const sectorSel = document.getElementById("cmp-sector");
-                if (sectorSel) {
-                    const beverageOpt = Array.from(sectorSel.options).find(o => o.value === "Beverage");
-                    sectorSel.value = beverageOpt ? "Beverage" : "All";
+                const spotA = data.spots.find(s => s.spot_id === "pilsner_01_pilsner_urquell_alfo");
+                const spotB = data.spots.find(s => s.spot_id === "lidl_01_v_e_pro_skv_l_grilov");
+                if (!spotA || !spotB) {
+                    setCmpStatus("Example unavailable: corpus spots not found.", "error");
+                    return;
                 }
-                submitCompare();
+                const labelled = (s, name) => Object.assign({}, s, { url: name });
+                cmpA.value = "Pilsner Urquell (Alfons Mucha)";
+                cmpB.value = "Lidl (Grilování)";
+                const sectorSel = document.getElementById("cmp-sector");
+                if (sectorSel) sectorSel.value = "Beverage";
+                setCmpStatus("Rendered from corpus, both spots already scored. Try a fresh URL above for a live backend call.", "ok");
+                renderComparison(
+                    labelled(spotA, "Pilsner Urquell (Alfons Mucha)"),
+                    labelled(spotB, "Lidl (Grilování)"),
+                );
             });
         }
     }
