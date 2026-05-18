@@ -800,6 +800,150 @@ footer a:hover { color: var(--accent); }
     .cmp-row { grid-template-columns: 1fr; }
 }
 
+/* ===== Brief Generator ===== */
+
+.brief-block {
+    margin: 0 0 clamp(28px, 4vw, 40px);
+    padding: clamp(20px, 3vw, 32px);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    background: var(--paper);
+}
+
+.brief-label {
+    margin: 0 0 6px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+.brief-form {
+    margin: 14px 0 0;
+    max-width: 320px;
+}
+
+.brief-result {
+    margin-top: 24px;
+}
+
+.brief-header {
+    margin: 0 0 18px;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+.brief-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.brief-card {
+    padding: 14px 16px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 6px;
+    background: var(--paper);
+}
+
+.brief-card-label {
+    margin: 0 0 6px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+.brief-card-target {
+    margin: 0 0 4px;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.brief-arrow {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+.brief-card-phrase {
+    margin: 0 0 6px;
+    font-size: 12px;
+    color: var(--ink);
+    font-style: italic;
+}
+
+.brief-card-context {
+    margin: 0;
+    font-size: 11px;
+    color: var(--ink-soft);
+}
+
+.brief-section-label {
+    margin: 18px 0 8px;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+.brief-occupants {
+    margin: 0 0 24px;
+    padding-left: 18px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.7;
+}
+
+.brief-occupants li::marker { color: var(--ink-faint); }
+
+.brief-draft {
+    margin-top: 24px;
+    padding: 14px 16px;
+    background: oklch(0.96 0.005 80);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+}
+
+.brief-draft-label {
+    margin: 0 0 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+.brief-draft-text {
+    margin: 0;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.brief-note {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+}
+
 .picker-block {
     margin: 0 0 clamp(40px, 5vw, 64px);
     padding: clamp(20px, 3vw, 32px);
@@ -1037,6 +1181,30 @@ footer a:hover { color: var(--accent); }
     <p class="lede">Pick a spot. Get its color and audio metrics, the sector defaults it lives inside, and three to five numerical targets it would need to hit to read as distinctive. 47 spots, 13 brands.</p>
     <p class="byline">By Barbora Šandová. <a href="https://github.com/sandovabarbora/spot-scorer">Source on GitHub</a>.</p>
 </header>
+
+<section class="brief-block">
+    <p class="brief-label">Generate a creative brief for a category</p>
+    <p class="url-help">Pick a category. Get the numerical spec a distinctive new spot in that category would need to hit, derived from where the existing 13 brands actually live. Read this as a starter creative brief, not a verdict.</p>
+    <div class="brief-form">
+        <select id="brief-sector" class="url-sector">
+
+            <option value="Automotive" selected>Automotive</option>
+
+            <option value="Banking">Banking</option>
+
+            <option value="Beverage">Beverage</option>
+
+            <option value="QSR">QSR</option>
+
+            <option value="Retail">Retail</option>
+
+            <option value="Telecom">Telecom</option>
+
+            <option value="All">All sectors</option>
+        </select>
+    </div>
+    <div id="brief-result" class="brief-result"></div>
+</section>
 
 
 <section class="url-block url-block-compare">
@@ -4608,6 +4776,143 @@ window.MODAL_ENDPOINT = "https://sandovabarb--spot-scorer-score.modal.run";
         const spot = data.spots.find(s => s.spot_id === id);
         if (spot) render(spot);
     }
+
+    // ---- Brief Generator (no backend — uses inline benchmarks) -----------
+    const briefSector = document.getElementById("brief-sector");
+    const briefResult = document.getElementById("brief-result");
+
+    // Per metric: direction the brief should push and human-readable phrasing
+    // 'extreme' direction is split into "low" or "high" by the spot's typical
+    // distinctive position; for new briefs we recommend the more open
+    // direction (further from sector median).
+    const BRIEF_METRICS = [
+        { key: "color_gap_deg",   label: "Brand-color gap",       fmt: v => v.toFixed(0) + "°",
+          low_phrase: "commit to brand color", high_phrase: "commit to a world" },
+        { key: "brand_anchor",    label: "Brand-color presence",  fmt: v => (v * 100).toFixed(0) + "%",
+          low_phrase: "let the picture be a world", high_phrase: "flood with brand color" },
+        { key: "diversity",       label: "Palette diversity",     fmt: v => v.toFixed(1),
+          low_phrase: "monothematic palette", high_phrase: "wide palette" },
+        { key: "sat_std",         label: "Saturation tension",    fmt: v => v.toFixed(2),
+          low_phrase: "steady saturation", high_phrase: "swinging saturation" },
+        { key: "voice_fraction",  label: "Voice fraction",        fmt: v => (v * 100).toFixed(0) + "%",
+          low_phrase: "let music carry", high_phrase: "voice-led narration" },
+        { key: "music_fraction",  label: "Music fraction",        fmt: v => (v * 100).toFixed(0) + "%",
+          low_phrase: "voice-led narration", high_phrase: "let music carry" },
+        { key: "tempo_bpm",       label: "Tempo",                 fmt: v => v.toFixed(0) + " bpm",
+          low_phrase: "slow / cinematic pacing", high_phrase: "uptempo / energetic pacing" },
+        { key: "rms_std",         label: "Dynamic range",         fmt: v => v.toFixed(2),
+          low_phrase: "flat loudness", high_phrase: "build-and-payoff dynamics" },
+    ];
+
+    function renderBrief(sector) {
+        clear(briefResult);
+        const bench = data.sector_benchmarks[sector];
+        if (!bench) {
+            briefResult.appendChild(el("p", { cls: "brief-note", text: "No benchmark for that sector." }));
+            return;
+        }
+
+        // Top three spots already in this sector (for "what's already here")
+        const sectorSpots = data.spots
+            .filter(s => s.sector === sector)
+            .map(s => ({ brand: s.brand, color_gap_deg: s.color_gap_deg,
+                         voice_fraction: s.voice_fraction, music_fraction: s.music_fraction,
+                         brand_anchor: s.brand_anchor }))
+            .slice(0, 3);
+
+        // Header
+        briefResult.appendChild(el("p", { cls: "brief-header",
+            text: `Brief — to read as distinctive in ${sector}` }));
+
+        // Table of metric targets
+        const grid = el("div", { cls: "brief-grid" });
+        BRIEF_METRICS.forEach(m => {
+            const b = bench[m.key];
+            if (!b) return;
+            const card = el("div", { cls: "brief-card" });
+            card.appendChild(el("p", { cls: "brief-card-label", text: m.label }));
+
+            // Recommend the more-open direction (whichever is further from median).
+            const distLow = b.median - b.p25;
+            const distHigh = b.p75 - b.median;
+            const pushLow = distLow >= distHigh;
+            const target = pushLow ? b.p25 : b.p75;
+            const phrase = pushLow ? m.low_phrase : m.high_phrase;
+            const dirArrow = pushLow ? "↓" : "↑";
+
+            const targetP = el("p", { cls: "brief-card-target" });
+            targetP.appendChild(el("span", { cls: "brief-arrow", text: dirArrow }));
+            targetP.appendChild(document.createTextNode(" " + (pushLow ? "≤ " : "≥ ") + m.fmt(target)));
+            card.appendChild(targetP);
+
+            card.appendChild(el("p", { cls: "brief-card-phrase", text: phrase }));
+            card.appendChild(el("p", { cls: "brief-card-context",
+                text: `sector median ${m.fmt(b.median)}, IQR ${m.fmt(b.p25)}–${m.fmt(b.p75)}` }));
+            grid.appendChild(card);
+        });
+        briefResult.appendChild(grid);
+
+        // Already-occupied positions
+        if (sectorSpots.length > 0) {
+            briefResult.appendChild(el("p", { cls: "brief-section-label",
+                text: "Already in this sector" }));
+            const list = el("ul", { cls: "brief-occupants" });
+            sectorSpots.forEach(s => {
+                const li = el("li");
+                const summary = `${s.brand}: gap ${s.color_gap_deg.toFixed(0)}°, ` +
+                                `anchor ${(s.brand_anchor * 100).toFixed(0)}%, ` +
+                                `voice ${(s.voice_fraction * 100).toFixed(0)}%`;
+                li.textContent = summary;
+                list.appendChild(li);
+            });
+            briefResult.appendChild(list);
+        }
+
+        // Draft brief card — copy-paste ready
+        const draft = el("div", { cls: "brief-draft" });
+        draft.appendChild(el("p", { cls: "brief-draft-label", text: "Draft brief copy" }));
+        const text = buildDraftCopy(sector, bench);
+        draft.appendChild(el("pre", { cls: "brief-draft-text", text: text }));
+        briefResult.appendChild(draft);
+    }
+
+    function buildDraftCopy(sector, bench) {
+        function fmtGap(v) { return v.toFixed(0) + "°"; }
+        function fmtPct(v) { return (v * 100).toFixed(0) + "%"; }
+        const gap = bench["color_gap_deg"];
+        const anchor = bench["brand_anchor"];
+        const voice = bench["voice_fraction"];
+        const tempo = bench["tempo_bpm"];
+        const dyn = bench["rms_std"];
+        // Decide direction per metric
+        const gapDir = (gap.median - gap.p25) >= (gap.p75 - gap.median) ? "low" : "high";
+        const anchorDir = (anchor.median - anchor.p25) >= (anchor.p75 - anchor.median) ? "low" : "high";
+        const voiceDir = (voice.median - voice.p25) >= (voice.p75 - voice.median) ? "low" : "high";
+
+        const lines = [
+            `CREATIVE BRIEF — distinctive ${sector} spot`,
+            ``,
+            `Color:`,
+            `  · brand-color gap   ${gapDir === "low" ? "≤ " + fmtGap(gap.p25) : "≥ " + fmtGap(gap.p75)}` +
+                `  (sector median ${fmtGap(gap.median)})`,
+            `  · brand presence    ${anchorDir === "low" ? "≤ " + fmtPct(anchor.p25) : "≥ " + fmtPct(anchor.p75)}` +
+                `  (sector median ${fmtPct(anchor.median)})`,
+            ``,
+            `Audio:`,
+            `  · voice fraction    ${voiceDir === "low" ? "≤ " + fmtPct(voice.p25) : "≥ " + fmtPct(voice.p75)}` +
+                `  (sector median ${fmtPct(voice.median)})`,
+            `  · tempo              ${tempo.p25.toFixed(0)}–${tempo.p75.toFixed(0)} bpm  (target away from sector default)`,
+            `  · dynamic range      ${dyn.p25.toFixed(2)}–${dyn.p75.toFixed(2)}`,
+            ``,
+            `Position: push out of the sector IQR on at least two metrics.`,
+            `Decide brand-color vs world-color in the brief, not the cut.`,
+            `Run draft through Spot Scorer on dailies, before picture lock.`,
+        ];
+        return lines.join("\n");
+    }
+
+    briefSector.addEventListener("change", e => renderBrief(e.target.value));
+    renderBrief(briefSector.value);
 
     // ---- URL submission (Modal endpoint) ----------------------------------
     const endpoint = window.MODAL_ENDPOINT;

@@ -792,6 +792,150 @@ footer a:hover { color: var(--accent); }
     .cmp-row { grid-template-columns: 1fr; }
 }
 
+/* ===== Brief Generator ===== */
+
+.brief-block {
+    margin: 0 0 clamp(28px, 4vw, 40px);
+    padding: clamp(20px, 3vw, 32px);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    background: var(--paper);
+}
+
+.brief-label {
+    margin: 0 0 6px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+.brief-form {
+    margin: 14px 0 0;
+    max-width: 320px;
+}
+
+.brief-result {
+    margin-top: 24px;
+}
+
+.brief-header {
+    margin: 0 0 18px;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+.brief-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.brief-card {
+    padding: 14px 16px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 6px;
+    background: var(--paper);
+}
+
+.brief-card-label {
+    margin: 0 0 6px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+.brief-card-target {
+    margin: 0 0 4px;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.brief-arrow {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+.brief-card-phrase {
+    margin: 0 0 6px;
+    font-size: 12px;
+    color: var(--ink);
+    font-style: italic;
+}
+
+.brief-card-context {
+    margin: 0;
+    font-size: 11px;
+    color: var(--ink-soft);
+}
+
+.brief-section-label {
+    margin: 18px 0 8px;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+.brief-occupants {
+    margin: 0 0 24px;
+    padding-left: 18px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.7;
+}
+
+.brief-occupants li::marker { color: var(--ink-faint); }
+
+.brief-draft {
+    margin-top: 24px;
+    padding: 14px 16px;
+    background: oklch(0.96 0.005 80);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+}
+
+.brief-draft-label {
+    margin: 0 0 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+.brief-draft-text {
+    margin: 0;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.brief-note {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+}
+
 .picker-block {
     margin: 0 0 clamp(40px, 5vw, 64px);
     padding: clamp(20px, 3vw, 32px);
